@@ -1,0 +1,6 @@
+{
+  "name": "progressive-investment-research",
+  "description": "累进式投资研究认知模型 Skill，用于持续维护投资研究 dossier。",
+  "version": "0.1.0",
+  "skills": "./"
+}

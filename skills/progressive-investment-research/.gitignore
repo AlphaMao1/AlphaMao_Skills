@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated or local-only research output
+generated/
+local-dossiers/
+private-dossiers/
+research-workspaces/
+*.zip
+*.7z
+*.log
+
+# Keep public fixtures and tests tracked.
+!fixtures/
+!evals/
+!tests/

@@ -1,0 +1,10 @@
+{
+  "name": "progressive-investment-research",
+  "description": "累进式投资研究认知模型 Skill，包含只读研究子 agent 模板。",
+  "version": "0.1.0",
+  "author": {
+    "name": "Progressive Research"
+  },
+  "skills": "./",
+  "agents": "./agents"
+}

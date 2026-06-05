@@ -1,0 +1,56 @@
+[
+  {
+    "name": "progressive-investment-research",
+    "display_name": "Progressive Investment Research",
+    "path": "skills/progressive-investment-research",
+    "skill_md": "skills/progressive-investment-research/SKILL.md",
+    "xiaohongshu_title": "我用 Skill 搭了个持续更新的投研工作区",
+    "xiaohongshu_url": "http://xhslink.com/o/4GUbrB6dvLr",
+    "status": "public"
+  },
+  {
+    "name": "technology-mapping",
+    "display_name": "Technology Mapping",
+    "path": "skills/technology-mapping",
+    "skill_md": "skills/technology-mapping/SKILL.md",
+    "xiaohongshu_title": "一个 Skill 搞定硬科技投资中的技术 mapping",
+    "xiaohongshu_url": "http://xhslink.com/o/9vGoxXSqLrS",
+    "status": "public"
+  },
+  {
+    "name": "serenity-thesis-tracker",
+    "display_name": "Serenity Thesis Tracker",
+    "path": "skills/serenity-thesis-tracker",
+    "skill_md": "skills/serenity-thesis-tracker/SKILL.md",
+    "xiaohongshu_title": "把 Serenity 的 X 变成可持续追踪的研究",
+    "xiaohongshu_url": "http://xhslink.com/o/4y5hTyS0hnf",
+    "status": "public"
+  },
+  {
+    "name": "ui-showreel-forge",
+    "display_name": "UI Showreel Forge",
+    "path": "skills/ui-showreel-forge",
+    "skill_md": "skills/ui-showreel-forge/SKILL.md",
+    "xiaohongshu_title": "运镜乱飘？一个 Skill 搞定 UI 演示动画",
+    "xiaohongshu_url": "http://xhslink.com/o/7LmFimZYx8m",
+    "status": "public"
+  },
+  {
+    "name": "market-sizing",
+    "display_name": "Market Sizing",
+    "path": "skills/market-sizing",
+    "skill_md": "skills/market-sizing/SKILL.md",
+    "xiaohongshu_title": "一个 Skill 搞定 Market Sizing",
+    "xiaohongshu_url": "http://xhslink.com/o/9zGJ009rm21",
+    "status": "public"
+  },
+  {
+    "name": "stanford-vibe-coding-course",
+    "display_name": "Stanford Vibe Coding Course",
+    "path": "skills/stanford-vibe-coding-course",
+    "skill_md": "skills/stanford-vibe-coding-course/SKILL.md",
+    "xiaohongshu_title": "斯坦福 Vibe Coding 课程学习系统开源",
+    "xiaohongshu_url": "http://xhslink.com/o/1qmfBbWYKku",
+    "status": "public"
+  }
+]

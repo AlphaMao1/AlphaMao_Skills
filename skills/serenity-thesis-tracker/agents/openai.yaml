@@ -1,0 +1,4 @@
+interface:
+  display_name: "Serenity Thesis Tracker"
+  short_description: "PaiWork-first Serenity investment thesis tracker"
+  default_prompt: "Process Serenity tweets into PaiWork research assets."
