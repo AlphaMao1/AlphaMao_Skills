@@ -35,7 +35,9 @@ UI 演示动画最常见的问题不是“不会生成图”，而是每一帧�
 
 ## 小红书讲解
 
-[运镜乱飘？一个 Skill 搞定 UI 演示动画](http://xhslink.com/o/7LmFimZYx8m)
+运镜乱飘？一个 Skill 搞定 UI 演示动画
+
+<http://xhslink.com/o/7LmFimZYx8m>
 
 ## 文件
 

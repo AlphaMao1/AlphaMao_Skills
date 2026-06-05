@@ -27,12 +27,12 @@
 
 | Skill | 一句话 | 小红书讲解 | 目录 |
 |---|---|---|---|
-| Progressive Investment Research | 把零散材料、判断和数字维护成可持续更新的投研工作区 | [我用 Skill 搭了个持续更新的投研工作区](http://xhslink.com/o/4GUbrB6dvLr) | [`skills/progressive-investment-research`](./skills/progressive-investment-research/) |
-| Technology Mapping | 从一个硬科技关键词出发，生成技术源流、学术谱系和商业化图谱 | [一个 Skill 搞定硬科技投资中的技术 mapping](http://xhslink.com/o/9vGoxXSqLrS) | [`skills/technology-mapping`](./skills/technology-mapping/) |
-| Serenity Thesis Tracker | 把 Serenity 的 X 帖子变成可持续追踪的投资研究线索 | [把 Serenity 的 X 变成可持续追踪的研究](http://xhslink.com/o/4y5hTyS0hnf) | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
-| UI Showreel Forge | 把 UI 截图变成风格一致的 showreel 垫图和视频导演脚本 | [运镜乱飘？一个 Skill 搞定 UI 演示动画](http://xhslink.com/o/7LmFimZYx8m) | [`skills/ui-showreel-forge`](./skills/ui-showreel-forge/) |
-| Market Sizing | 用 Fermi、Monte Carlo 和公开数据源估算 TAM / SAM / SOM | [一个 Skill 搞定 Market Sizing](http://xhslink.com/o/9zGJ009rm21) | [`skills/market-sizing`](./skills/market-sizing/) |
-| Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | [斯坦福 Vibe Coding 课程学习系统开源](http://xhslink.com/o/1qmfBbWYKku) | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
+| Progressive Investment Research | 把零散材料、判断和数字维护成可持续更新的投研工作区 | 我用 Skill 搭了个持续更新的投研工作区<br><http://xhslink.com/o/4GUbrB6dvLr> | [`skills/progressive-investment-research`](./skills/progressive-investment-research/) |
+| Technology Mapping | 从一个硬科技关键词出发，生成技术源流、学术谱系和商业化图谱 | 一个 Skill 搞定硬科技投资中的技术 mapping<br><http://xhslink.com/o/9vGoxXSqLrS> | [`skills/technology-mapping`](./skills/technology-mapping/) |
+| Serenity Thesis Tracker | 把 Serenity 的 X 帖子变成可持续追踪的投资研究线索 | 把 Serenity 的 X 变成可持续追踪的研究<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
+| UI Showreel Forge | 把 UI 截图变成风格一致的 showreel 垫图和视频导演脚本 | 运镜乱飘？一个 Skill 搞定 UI 演示动画<br><http://xhslink.com/o/7LmFimZYx8m> | [`skills/ui-showreel-forge`](./skills/ui-showreel-forge/) |
+| Market Sizing | 用 Fermi、Monte Carlo 和公开数据源估算 TAM / SAM / SOM | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
+| Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
 
 ---
 
@@ -88,7 +88,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 把这批材料吸收到模型里
 ```
 
-→ [SKILL.md](./skills/progressive-investment-research/SKILL.md) · [小红书讲解](http://xhslink.com/o/4GUbrB6dvLr)
+→ [SKILL.md](./skills/progressive-investment-research/SKILL.md) · 小红书讲解：<http://xhslink.com/o/4GUbrB6dvLr>
 
 </td></tr>
 </table>
@@ -116,7 +116,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 研究一下这个硬科技方向的源流
 ```
 
-→ [SKILL.md](./skills/technology-mapping/SKILL.md) · [小红书讲解](http://xhslink.com/o/9vGoxXSqLrS)
+→ [SKILL.md](./skills/technology-mapping/SKILL.md) · 小红书讲解：<http://xhslink.com/o/9vGoxXSqLrS>
 
 </td></tr>
 </table>
@@ -145,7 +145,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 更新公司研究文件
 ```
 
-→ [SKILL.md](./skills/serenity-thesis-tracker/SKILL.md) · [小红书讲解](http://xhslink.com/o/4y5hTyS0hnf)
+→ [SKILL.md](./skills/serenity-thesis-tracker/SKILL.md) · 小红书讲解：<http://xhslink.com/o/4y5hTyS0hnf>
 
 </td></tr>
 </table>
@@ -173,7 +173,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 给我生成 Kling 可用的导演脚本
 ```
 
-→ [SKILL.md](./skills/ui-showreel-forge/SKILL.md) · [小红书讲解](http://xhslink.com/o/7LmFimZYx8m)
+→ [SKILL.md](./skills/ui-showreel-forge/SKILL.md) · 小红书讲解：<http://xhslink.com/o/7LmFimZYx8m>
 
 </td></tr>
 </table>
@@ -201,7 +201,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 这个赛道市场有多大
 ```
 
-→ [SKILL.md](./skills/market-sizing/SKILL.md) · [小红书讲解](http://xhslink.com/o/9zGJ009rm21)
+→ [SKILL.md](./skills/market-sizing/SKILL.md) · 小红书讲解：<http://xhslink.com/o/9zGJ009rm21>
 
 </td></tr>
 </table>
@@ -230,7 +230,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 帮我复习这节课
 ```
 
-→ [SKILL.md](./skills/stanford-vibe-coding-course/SKILL.md) · [小红书讲解](http://xhslink.com/o/1qmfBbWYKku)
+→ [SKILL.md](./skills/stanford-vibe-coding-course/SKILL.md) · 小红书讲解：<http://xhslink.com/o/1qmfBbWYKku>
 
 </td></tr>
 </table>

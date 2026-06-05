@@ -51,7 +51,9 @@ dossier/
 
 ## 小红书讲解
 
-[我用 Skill 搭了个持续更新的投研工作区](http://xhslink.com/o/4GUbrB6dvLr)
+我用 Skill 搭了个持续更新的投研工作区
+
+<http://xhslink.com/o/4GUbrB6dvLr>
 
 ## 文件
 

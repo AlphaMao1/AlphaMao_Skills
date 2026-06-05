@@ -38,7 +38,9 @@
 
 ## 小红书讲解
 
-[斯坦福 Vibe Coding 课程学习系统开源](http://xhslink.com/o/1qmfBbWYKku)
+斯坦福 Vibe Coding 课程学习系统开源
+
+<http://xhslink.com/o/1qmfBbWYKku>
 
 ## 文件
 

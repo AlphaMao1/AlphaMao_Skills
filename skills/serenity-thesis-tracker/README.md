@@ -25,6 +25,8 @@
 
 如果你在其他 Agent 环境中安装，建议安装后先让 Agent 检查本地可用工具、数据源、浏览器登录态和工作区结构，再把 `SKILL.md` 中的 PaiWork 相关步骤适配为你的本地流程。也可以先收藏这个 Skill，等待后续通用版本更新。
 
+如果你在 **PaiWork** 上使用，建议安装后直接让 Agent 根据这个 Skill 创建自动化任务，例如定时抓取 Serenity 最新内容、生成每日 intake、更新 thesis / claim / company files，并把日报或周报写入指定研究工作区。这样它就不是一次性整理工具，而是一个持续运行的研究跟踪流程。
+
 ## 怎么触发
 
 ```text
@@ -39,11 +41,14 @@
 ```text
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/serenity-thesis-tracker
 安装后先检查我的本地环境，把 PaiWork 相关工具和数据源适配成可用流程
+如果我在 PaiWork 上使用，请基于这个 skill 创建 Serenity 跟踪自动化任务
 ```
 
 ## 小红书讲解
 
-[把 Serenity 的 X 变成可持续追踪的研究](http://xhslink.com/o/4y5hTyS0hnf)
+把 Serenity 的 X 变成可持续追踪的研究
+
+<http://xhslink.com/o/4y5hTyS0hnf>
 
 ## 文件
 

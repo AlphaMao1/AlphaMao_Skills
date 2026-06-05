@@ -37,7 +37,9 @@
 
 ## 小红书讲解
 
-[一个 Skill 搞定硬科技投资中的技术 mapping](http://xhslink.com/o/9vGoxXSqLrS)
+一个 Skill 搞定硬科技投资中的技术 mapping
+
+<http://xhslink.com/o/9vGoxXSqLrS>
 
 ## 文件
 

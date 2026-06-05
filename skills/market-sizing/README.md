@@ -36,7 +36,9 @@
 
 ## 小红书讲解
 
-[一个 Skill 搞定 Market Sizing](http://xhslink.com/o/9zGJ009rm21)
+一个 Skill 搞定 Market Sizing
+
+<http://xhslink.com/o/9zGJ009rm21>
 
 ## 文件
 
