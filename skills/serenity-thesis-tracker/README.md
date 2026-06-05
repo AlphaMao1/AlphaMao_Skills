@@ -19,6 +19,12 @@
 - 更新公司文件和研究 backlog
 - 输出 daily / weekly research report
 
+## 当前版本说明
+
+这一版是 **PaiWork 适配版**。它默认使用 PaiWork 的研究工作区、analyst/report 工具、市场数据、搜索能力和研究数据源来完成抓取后的分类、验证、公司文件更新与报告生成。
+
+如果你在其他 Agent 环境中安装，建议安装后先让 Agent 检查本地可用工具、数据源、浏览器登录态和工作区结构，再把 `SKILL.md` 中的 PaiWork 相关步骤适配为你的本地流程。也可以先收藏这个 Skill，等待后续通用版本更新。
+
 ## 怎么触发
 
 ```text
@@ -32,6 +38,7 @@
 
 ```text
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/serenity-thesis-tracker
+安装后先检查我的本地环境，把 PaiWork 相关工具和数据源适配成可用流程
 ```
 
 ## 小红书讲解
