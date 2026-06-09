@@ -74,37 +74,6 @@ caution_labels:
 notes: 来自旧 PaiWork 案例，但不能复用 PaiWork 工作区状态。
 ```
 
-### Leopold
-
-```yaml
-source_id: leopold
-display_name: Leopold
-viewpoint_scope: AI strategy, scaling, national security, frontier model labs, and geopolitics
-platforms:
-  - platform: x
-    locator: https://x.com/leopoldasch
-    handle_or_channel: leopoldasch
-    collection_method: chrome-plugin-first
-  - platform: website
-    locator: https://situational-awareness.ai/
-    handle_or_channel: situational-awareness
-    collection_method: manual-or-web
-status: watchlist-low-frequency
-default_topics:
-  - ai-strategy
-  - ai-scaling
-  - geopolitics
-  - frontier-model-labs
-source_tier: creator_source_lead
-research_tier_fallback: expert_interview
-raw_material_policy: transcript-or-link-plus-summary
-caution_labels:
-  - source-lead-not-fact
-  - long-form-argument-needs-decomposition
-  - requires-primary-check
-notes: 官方 For Our Posterity 站点的 Twitter 链接指向 twitter.com/leopoldasch；YouTube 不作为内置来源，除非未来确认 Leopold 自己的官方频道并显式新增平台。该来源更新低频，默认不作为高频冷启动案例；只在出现新长文或高 materiality X 更新时抓取。
-```
-
 ### Rihard Jarc
 
 ```yaml
@@ -138,6 +107,8 @@ caution_labels:
 notes: 账号拼写为 RihardJarc，不是 RichardJarc。先跑 3-10 条小样本 intake；X 用 Chrome 原文门禁，newsletter 仅作为补充来源，不替代 live X 验收。
 ```
 
+内置来源目前只保留 Serenity 和 RihardJarc。其他 creator 即使未来可跟踪，也必须按“新来源接入流程”显式注册，不在开源包里预设未完成案例。
+
 ## 新来源接入流程
 
 先判断来源类型：
@@ -168,7 +139,14 @@ notes: 账号拼写为 RihardJarc，不是 RichardJarc。先跑 3-10 条小样�
 - 公开镜像站、搜索结果片段、缓存页只能作为辅助发现线索，不能作为“live 成功”证据。
 - X 原文质量门槛：正式日报和 active route 只能使用 source-language 原文或完整人工导出。含 `翻译自/显示原文/显示更多`、`x-ui-auto-translated`、搜索摘要、公开镜像、summary-only、未展开原文的材料必须阻断。
 - 如果 live 链路不可用或只能得到 UI 翻译/摘要，不能生成正式日报；只能留下 blocked 状态记录或 rejected raw 归档。`partial` 只能用于“部分条目被剔除，但剩余条目已经是合格原文”的场景。
-- Leopold 的内置来源必须先检查 X：`https://x.com/leopoldasch`。网站只作为手动/公开长文补充；YouTube、播客或访谈只有在确认是该来源自己的官方频道或用户显式加入 supporting source 时才抓，不能替代 X。
+
+## 自动化任务
+
+安装后可以让 Agent 生成每日自动化任务：固定时间抓取已注册来源，生成 `archive/creator-daily/<source_id>/<YYYY-MM-DD>.md`，再运行 `scripts/route_research_updates.py` 拆到 progressive research 工作区。自动化任务必须把登录失败、权限失败、字幕缺失、UI 翻译拦截和无有效更新分开记录，不能把失败伪装成“没有更新”。
+
+## 依赖提示
+
+本 Skill 的 active 写入标准依赖 `progressive-investment-research`。如果目标环境没有安装该 Skill，Agent 必须先提示安装或创建兼容 dossier，再继续 route；不能只生成日报后留下空白研究工作区。
 
 ## 维护规则
 

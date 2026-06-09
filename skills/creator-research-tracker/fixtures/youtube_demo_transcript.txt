@@ -1,0 +1,3 @@
+The central point of AI infrastructure scaling is that frontier model progress is no longer only a lab story. It is an industrial, supply chain, power, and compute governance story.
+If the capability curve continues, the binding constraints become clusters, power availability, networking, memory, deployment speed, and the ability of institutions to react before the model is already widely deployed.
+This should be treated as a model candidate, not as a fact: the timing and slope need outside verification from compute buildout, lab roadmaps, company disclosures, and policy evidence.

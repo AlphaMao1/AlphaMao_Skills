@@ -122,25 +122,6 @@ CANDIDATE_LIST_COMPANY_SLUGS = {
     "alpha-omega-semiconductor",
 }
 
-LEOPOLD_SHORT_SIDE_SLUGS = {
-    "nvidia",
-    "amd",
-    "broadcom",
-    "oracle",
-    "asml",
-    "intel",
-    "corning",
-}
-
-LEOPOLD_LONG_SIDE_SLUGS = {
-    "coreweave",
-}
-
-LEOPOLD_AMBIGUOUS_SIDE_SLUGS = {
-    "micron",
-}
-
-
 def append_once(path: Path, block: str, marker: str) -> bool:
     path.parent.mkdir(parents=True, exist_ok=True)
     existing = path.read_text(encoding="utf-8") if path.exists() else ""
@@ -387,26 +368,9 @@ def logic_for_item(item: dict[str, Any], company: dict[str, str] | None = None) 
             "该线索应归入 hyperscaler CapEx discipline：市场是否开始区分“有效 AI capex”和“情绪驱动 capex”。"
         )
     if re.search(r"\b(13f|short|puts?|bearish|position|portfolio)\b", text):
-        if slug in LEOPOLD_LONG_SIDE_SLUGS:
-            return (
-                f"二手视频声称 Leopold 相关组合仍保留或强化 {name} 这类 neocloud / data-center 暴露。"
-                "它不是“被做空”的对象，而是“芯片估值拥挤、瓶颈转向电力/数据中心/内存”这条轮动逻辑里的多头表达。"
-                "关键含义是：若一手披露验证成立，研究应拆分为半导体 beta 降温与物理基础设施瓶颈受益两条线。"
-            )
-        if slug in LEOPOLD_AMBIGUOUS_SIDE_SLUGS:
-            return (
-                f"二手视频同时把 {name} 放进期权/对冲讨论，又把内存列为 Leopold 继续看重的物理瓶颈之一。"
-                "因此它不能被简单归类为纯空头或纯多头，必须回到 13F/期权披露区分股票、put/call、名义敞口和实际方向。"
-            )
-        if slug in LEOPOLD_SHORT_SIDE_SLUGS:
-            return (
-                f"二手视频声称 Leopold 相关组合对 {name} 或其所在 AI 半导体链条出现 put/short/看跌敞口。"
-                "逻辑含义不是否定 AI 长期需求，而是认为泛半导体 beta/估值可能过度拥挤，资金更值得转向电力、数据中心和内存等物理瓶颈。"
-                "该说法必须先核验一手 13F/期权披露。"
-            )
         return (
-            "二手视频声称 Leopold 的组合从单边 AI 半导体 beta 转向双向表达：一边用 put/short 管理半导体拥挤交易，"
-            "另一边保留或增加数据中心、电力和内存等物理瓶颈敞口。研究含义是先拆清头寸方向和标的归属，再判断是否更新模型。"
+            f"该更新涉及 {name} 的组合、13F、short、put 或 bearish 表达。"
+            "研究含义不是直接形成多空判断，而是先回到一手持仓/期权披露，拆清股票、put/call、名义敞口、实际方向和时间窗口。"
         )
     if "5%" in text and ("sive" in text or "sivers" in text):
         return (
@@ -499,7 +463,7 @@ def route_item(dossier: Path, report_date: str, item: dict[str, Any], daily_path
         question = "这个 source lead 是否足以改变当前研究模型？"
         item_text = " ".join([str(item.get("summary") or ""), str(item.get("source_text") or "")]).lower()
         if "13f" in verification.lower():
-            question = "Leopold 相关组合变化是否真的代表 AI 半导体 beta 向电力/内存/数据中心瓶颈轮动？"
+            question = "该组合/期权线索是否真的代表相关产业链暴露或市场预期变化？"
         elif "neocloud" in item_text or "spacex" in item_text:
             question = "SpaceX/xAI compute lease 是否代表可持续的 neocloud 供给侧变化？"
         elif "scaffolding" in item_text or "agent 365" in item_text or "work iq" in item_text:

@@ -1,6 +1,6 @@
 ---
 name: creator-research-tracker
-description: 把 X/Twitter 博主、YouTube 博主、newsletter、播客或类似个人信息源的持续更新转成 progressive-investment-research 研究工作区的可审计增量。适用于：跟踪博主更新、生成每日报告、通过 Chrome 登录态或本地 browser bridge 抓 X、用 yt-dlp 抓 YouTube 字幕、把观点拆成 source leads、公司页、行业模块、open questions 和后续研究任务。Serenity、RihardJarc、Leopold 是内置信息源案例，不依赖 PaiWork 专有工具。
+description: 把 X/Twitter 博主、YouTube 博主、newsletter、播客或类似个人信息源的持续更新转成 progressive-investment-research 研究工作区的可审计增量。适用于：跟踪博主更新、生成每日报告、通过 Chrome 登录态或本地 browser bridge 抓 X、用 yt-dlp 抓 YouTube 字幕、把观点拆成 source leads、公司页、行业模块、open questions 和后续研究任务。Serenity 和 RihardJarc 是内置信息源案例，不依赖 PaiWork 专有工具。
 ---
 
 # Creator Research Tracker
@@ -15,7 +15,7 @@ description: 把 X/Twitter 博主、YouTube 博主、newsletter、播客或类�
 
 - 面向用户和 agent 的说明、日报、dossier 模板必须中文为主；只有枚举、脚本参数、平台字段、源文本摘录等必要位置保留英文。
 - 这是原 PaiWork Serenity 跟踪流程的通用本地版，但不替代 `serenity-thesis-tracker` 原版；Serenity 只是内置信息源之一。
-- Serenity、RihardJarc、Leopold 都只是内置信息源；不要为每个信息源再造一个单独 Skill。
+- 内置来源目前只保留 Serenity 和 RihardJarc；其他 creator 必须按新增来源流程显式接入，不预设未完成案例。
 - X/Twitter 默认不调用 `x-digest`；优先使用 Codex Chrome 插件，其次使用本 Skill 内置的 browser-bridge collector、用户导出材料，或未来显式配置的 API adapter。
 - 公开镜像站、搜索片段、缓存页只能作为辅助线索；不能把它们当成 live X 验收成功。
 - X/Twitter 正式日报和 active route 只能使用 source-language 原文或完整人工导出；X UI 自动翻译、搜索摘要、公开镜像、未点击“显示原文/Show original”或未展开“显示更多/Show more”的文本一律不合格。只抓到这类材料时，必须阻断并标记 blocked，不能生成正式日报，更不能写入研究工作区。
@@ -26,7 +26,7 @@ description: 把 X/Twitter 博主、YouTube 博主、newsletter、播客或类�
 ## 默认流程
 
 1. **确认信息源和 dossier**
-   - 选择 Serenity、RihardJarc、Leopold 或新增来源时，读 `references/source-registry.md`。
+   - 选择 Serenity、RihardJarc 或新增来源时，读 `references/source-registry.md`。
    - 如果还没有 dossier，用 `scripts/scaffold_creator_dossier.py` 创建 progressive research 骨架。
    - 如果 dossier 已存在，先读 `context.md`、`current-synthesis.md`、`model-map.md`、`source-leads-index.md`、`open-questions.md`、`update-log.md`，以及相关 `modules/`、`companies/`。
 
@@ -64,15 +64,20 @@ description: 把 X/Twitter 博主、YouTube 博主、newsletter、播客或类�
    - 先给每日报告路径和今天发了什么。
    - 再列研究写入、开放问题、bridge candidate、跳过/噪音、访问失败、验证结果。
 
+## 依赖和自动化
+
+- 本 Skill 的 active 写入依赖 `progressive-investment-research` 的 dossier 标准。若环境未安装该 Skill，必须先提示安装，或先创建兼容的 progressive research 工作区。
+- 用户可以让 Agent 生成每日自动化任务：每天固定时间抓取已注册来源，生成 `archive/creator-daily/<source_id>/<YYYY-MM-DD>.md`，再运行 `scripts/route_research_updates.py` 拆到工作区并做可执行验证。
+- 自动化任务必须区分“无有效更新”和“抓取失败/登录失败/权限失败/字幕缺失/UI 自动翻译拦截”，不能把失败写成没有更新。
+
 ## 内置信息源
 
 - `serenity`：X-first 来源。种子定位：`@aleabitoreddit` / `https://x.com/aleabitoreddit`。所有观点先按未验证 source lead 处理。
 - `rihardjarc`：X + newsletter 来源。种子定位：`@RihardJarc` / `https://x.com/RihardJarc`，补充来源为 UncoverAlpha。适合 AI infrastructure、cloud CapEx、TPU/GPU economics、hyperscaler ASIC 和半导体供应链 source leads。账号拼写是 `RihardJarc`，不是 `RichardJarc`。
-- `leopold`：低频 X + website 来源。官方站点的 Twitter 链接指向 `@leopoldasch`；live collection 时必须先跑 X，官网长文只作为手动/公开补充。Leopold 的内置来源必须先检查 X。YouTube 不作为 Leopold 内置来源，除非未来确认 Leopold 自己的官方频道并显式加入；第三方解读视频只能作为 supporting source 或临时材料，不能算 Leopold 每日更新。
 
 内置信息源只是默认配置，不是硬编码流程。实际运行时可以更新 locator。
 
-YouTube 是可选平台能力，不是 Serenity/Leopold 的默认预置来源；只有 source registry 明确注册了该 creator 的 YouTube channel/playlist，或用户本轮显式给出 YouTube 材料，才纳入主日报。
+YouTube 是可选平台能力，不是内置来源的默认平台；只有 source registry 明确注册了该 creator 的 YouTube channel/playlist，或用户本轮显式给出 YouTube 材料，才纳入主日报。
 
 ## 常用命令
 

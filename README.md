@@ -161,11 +161,14 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 
 这个 Skill 是 Serenity 案例的通用本地版。它保留每日跟踪体验，但不依赖 PaiWork 专有工具：先生成 creator daily report，再把有价值内容拆到 progressive research 的 source leads、公司页、行业模块和开放问题。
 
+使用前需要安装 `progressive-investment-research`；安装后可以让 Agent 创建每日自动化任务，定时抓取已注册来源、生成日报并拆到研究工作区。
+
 **适合**
 
 - 跟踪 X/Twitter、YouTube、newsletter 或类似个人信息源
 - 用 Chrome 登录态抓 X 原文，并拦截 UI 自动翻译、搜索摘要和公开镜像
 - 把博主观点转成可审计的公司、行业和机制研究增量
+- 每天自动生成 creator daily report 并 route 到 progressive research
 
 **触发方式**
 

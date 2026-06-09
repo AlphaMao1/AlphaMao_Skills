@@ -6,7 +6,7 @@
 
 ## 适合
 
-- 跟踪 Serenity、RihardJarc、Leopold 或新增 X/Twitter 博主
+- 跟踪 Serenity、RihardJarc 或新增 X/Twitter 博主
 - 把高质量个人信息源变成可审计研究线索，而不是看完就划走
 - 每天生成 creator daily report：今天发了什么、哪些值得看、链接在哪里
 - 把有价值更新拆到 `companies/`、`modules/`、`source-leads-index.md` 和 `open-questions.md`
@@ -34,9 +34,10 @@
 | --- | --- | --- |
 | `serenity` | `@aleabitoreddit` / X-first | 原 PaiWork Serenity workflow 的通用本地案例。 |
 | `rihardjarc` | `@RihardJarc` / X + newsletter | AI infrastructure、cloud CapEx、TPU/GPU economics、hyperscaler ASIC 线索。 |
-| `leopold` | `@leopoldasch` / X + website | 低频高材料性来源；YouTube 不作为默认内置来源。 |
 
 新增信息源按 [`references/source-registry.md`](./references/source-registry.md) 接入。
+
+内置来源目前只保留 Serenity 和 RihardJarc。其他 creator 必须显式接入，不在开源包里预设未完成案例。
 
 ## 核心产物
 
@@ -73,6 +74,22 @@ dossier/
 ```text
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/creator-research-tracker
 ```
+
+同时需要安装或启用依赖 Skill：
+
+```text
+帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/progressive-investment-research
+```
+
+## 自动化任务
+
+安装后可以让 Agent 生成每日自动化任务，例如：
+
+```text
+为 Serenity 创建每日自动化任务：每天收集最新 X 原文，生成 creator daily report，再把有价值内容拆到 progressive research 工作区。
+```
+
+自动化任务应每天输出 `archive/creator-daily/<source>/<date>.md`，并记录抓取成功、登录失败、权限失败、字幕缺失、UI 自动翻译拦截和无有效更新之间的区别。
 
 ## 常用命令
 

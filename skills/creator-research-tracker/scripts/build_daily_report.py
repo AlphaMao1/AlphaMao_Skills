@@ -200,7 +200,7 @@ def youtube_summary(title: str, transcript: str) -> str:
     if "short" in lower and "nvidia" in lower:
         return "YouTube 二手解读称某组合通过 SMH/NVIDIA 等 puts 或 short 暴露看空部分 AI 半导体 beta，同时多头线索转向数据中心、电力和内存等物理瓶颈；该说法必须回到 13F/期权披露核验，且不能自动视为被跟踪博主本人的更新。"
     if "situational awareness" in lower:
-        return "视频围绕 Leopold 的 Situational Awareness 论证，讨论 AGI、算力扩张、国家安全和 AI 产业化路径。"
+        return "视频围绕 AI situational awareness 论证，讨论 AGI、算力扩张、国家安全和 AI 产业化路径。"
     return f"YouTube 长内容补充：{title}"
 
 

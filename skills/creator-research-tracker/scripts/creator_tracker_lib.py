@@ -11,7 +11,6 @@ from typing import Any
 
 BUILTIN_SOURCE_PLATFORMS: dict[str, set[str]] = {
     "serenity": {"x"},
-    "leopold": {"x", "website"},
     "rihardjarc": {"x", "newsletter"},
 }
 

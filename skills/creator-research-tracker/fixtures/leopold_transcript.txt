@@ -1,3 +1,0 @@
-The central point of situational awareness is that scaling frontier models is not only a lab story. It is an industrial, national security, and compute governance story.
-If the capability curve continues, the binding constraints become clusters, power, talent concentration, export controls, and the ability of institutions to react before the model is already deployed.
-This should be treated as a model candidate, not as a fact: the timing and slope need outside verification from compute buildout, lab roadmaps, and policy evidence.

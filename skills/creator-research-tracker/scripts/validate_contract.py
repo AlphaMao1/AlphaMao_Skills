@@ -549,10 +549,10 @@ def main() -> int:
                 ]
             )
             fixture_manifest = tmpdir / "youtube_demo_manifest.json"
-            shutil.copy(ROOT / "fixtures" / "leopold_youtube_manifest.json", fixture_manifest)
+            shutil.copy(ROOT / "fixtures" / "youtube_demo_manifest.json", fixture_manifest)
             fixture_transcript_dir = tmpdir / "fixtures"
             fixture_transcript_dir.mkdir()
-            shutil.copy(ROOT / "fixtures" / "leopold_transcript.txt", fixture_transcript_dir / "leopold_transcript.txt")
+            shutil.copy(ROOT / "fixtures" / "youtube_demo_transcript.txt", fixture_transcript_dir / "youtube_demo_transcript.txt")
             result = run(
                 [
                     PY,
@@ -576,33 +576,33 @@ def main() -> int:
             if "model-candidate" not in report and "module-update" not in report:
                 failures.append("youtube fixture did not produce research-relevant action")
 
-            leopold_dossier = tmpdir / "creator-leopold"
+            x_only_dossier = tmpdir / "creator-x-only-demo"
             result = run(
                 [
                     PY,
                     str(ROOT / "scripts" / "scaffold_creator_dossier.py"),
-                    str(leopold_dossier),
+                    str(x_only_dossier),
                     "--source-id",
-                    "leopold",
+                    "x-only-demo",
                     "--display-name",
-                    "Leopold",
+                    "X-only Demo Source",
                     "--platform",
                     "x",
                     "--locator",
-                    "https://x.com/leopoldasch",
+                    "https://x.com/x_only_demo",
                 ]
             )
-            assert_ok(result, "scaffold leopold")
+            assert_ok(result, "scaffold x-only demo")
             blocked = run(
                 [
                     PY,
                     str(ROOT / "scripts" / "build_daily_report.py"),
                     "--dossier",
-                    str(leopold_dossier),
+                    str(x_only_dossier),
                     "--source-id",
-                    "leopold",
+                    "x-only-demo",
                     "--display-name",
-                    "Leopold",
+                    "X-only Demo Source",
                     "--date",
                     "2026-06-08",
                     "--youtube-manifest",
@@ -610,37 +610,37 @@ def main() -> int:
                 ],
                 cwd=tmpdir,
             )
-            assert_fails(blocked, "leopold unregistered youtube build", "未注册 youtube")
+            assert_fails(blocked, "x-only demo unregistered youtube build", "未注册 youtube")
             blocked = run(
                 [
                     PY,
                     str(ROOT / "scripts" / "route_research_updates.py"),
                     "--dossier",
-                    str(leopold_dossier),
+                    str(x_only_dossier),
                     "--source-id",
-                    "leopold",
+                    "x-only-demo",
                     "--display-name",
-                    "Leopold",
+                    "X-only Demo Source",
                     "--date",
                     "2026-06-08",
                     "--daily-report",
-                    str(leopold_dossier / "archive" / "creator-daily" / "leopold" / "2026-06-08.md"),
+                    str(x_only_dossier / "archive" / "creator-daily" / "x-only-demo" / "2026-06-08.md"),
                     "--youtube-manifest",
                     str(fixture_manifest),
                 ],
                 cwd=tmpdir,
             )
-            assert_fails(blocked, "leopold unregistered youtube route", "未注册 youtube")
+            assert_fails(blocked, "x-only demo unregistered youtube route", "未注册 youtube")
             blocked = run(
                 [
                     PY,
                     str(ROOT / "scripts" / "normalize_intake.py"),
                     "--dossier",
-                    str(leopold_dossier),
+                    str(x_only_dossier),
                     "--source-id",
-                    "leopold",
+                    "x-only-demo",
                     "--display-name",
-                    "Leopold",
+                    "X-only Demo Source",
                     "--platform",
                     "youtube",
                     "--youtube-manifest",
@@ -650,7 +650,7 @@ def main() -> int:
                 ],
                 cwd=tmpdir,
             )
-            assert_fails(blocked, "leopold unregistered youtube normalize", "未注册 youtube")
+            assert_fails(blocked, "x-only demo unregistered youtube normalize", "未注册 youtube")
             allowed_debug = run(
                 [
                     PY,
@@ -706,9 +706,10 @@ def main() -> int:
             required_contract_phrases = [
                 "Codex Chrome 插件",
                 "不能把它们当成 live X 验收成功",
-                "Leopold 的内置来源必须先检查 X",
-                "YouTube 不作为 Leopold 内置来源",
-                "YouTube 是可选平台能力，不是 Serenity/Leopold 的默认预置来源",
+                "内置来源目前只保留 Serenity 和 RihardJarc",
+                "YouTube 是可选平台能力，不是内置来源的默认平台",
+                "每日自动化任务",
+                "progressive-investment-research",
                 "collection_method: chrome-plugin-first",
                 "scripts/build_daily_report.py",
                 "scripts/route_research_updates.py",
@@ -735,6 +736,8 @@ def main() -> int:
                 "modules/",
                 "UI 自动翻译",
                 "待验证后补齐",
+                "progressive-investment-research",
+                "每日自动化任务",
             ]
             for needle in required_readme_phrases:
                 if needle not in readme_text:

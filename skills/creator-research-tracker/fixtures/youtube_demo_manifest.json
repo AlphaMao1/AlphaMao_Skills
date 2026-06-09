@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-06-08T05:00:00+00:00",
+  "lang": "en.*",
+  "channel_entries": [
+    {
+      "id": "youtube_demo_fixture_1",
+      "title": "AI infrastructure bottlenecks and compute scaling",
+      "url": "https://www.youtube.com/watch?v=youtube_demo_fixture_1",
+      "channel": "YouTube Demo Source"
+    }
+  ],
+  "results": [
+    {
+      "url": "https://www.youtube.com/watch?v=youtube_demo_fixture_1",
+      "ok": true,
+      "raw_subtitle_paths": [],
+      "text_paths": [
+        "fixtures/youtube_demo_transcript.txt"
+      ],
+      "stderr": ""
+    }
+  ]
+}

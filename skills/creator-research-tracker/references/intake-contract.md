@@ -9,7 +9,7 @@
 | 字段 | 含义 |
 | --- | --- |
 | `batch_id` | 稳定批次 id，通常是 `<source_id>-<YYYY-MM-DD>` |
-| `source_id` | 注册表 id，如 `serenity`、`leopold` |
+| `source_id` | 注册表 id，如 `serenity`、`rihardjarc` 或新接入 creator |
 | `display_name` | 人类可读名称 |
 | `platform` | `x`、`youtube`、`website`、`podcast`、`newsletter`、`manual` |
 | `captured_at` | 抓取时间 |
