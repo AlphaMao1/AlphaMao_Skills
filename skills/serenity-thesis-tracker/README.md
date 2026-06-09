@@ -1,103 +1,47 @@
 # Serenity Thesis Tracker
 
-把 Serenity 的 X 更新变成可持续追踪、可验证、可接续的投研工作区。
+把 Serenity 的 X 帖子整理成可持续追踪的投资研究资产。
 
-这是原 PaiWork 版 Serenity 跟踪 Skill 的 **通用本地版 / 非 PaiWork 依赖版**。它不再假设 PaiWork 的专有工作区、数据源或报告工具，而是把 Serenity 的更新写入 `progressive-investment-research` 风格的 research dossier：每日观点报告、source leads、公司页、行业模块和 open questions。
+高质量信息源的问题不是“有没有看到”，而是看完以后有没有沉淀。这个 Skill 用来把 Serenity 的 X 帖子转成结构化研究状态：thesis、claim、ticker、公司文件、供应链关系、日报、周报和后续研究 backlog。
 
 ## 适合
 
-- 跟踪 Serenity / `@aleabitoreddit` 的 X 更新
-- 把高质量 X 信息源变成可审计研究线索，而不是看完就划走
-- 每天生成 creator daily report：今天发了什么、哪些值得看、链接在哪里
-- 把有价值更新拆到 `companies/`、`modules/`、`source-leads-index.md` 和 `open-questions.md`
-- 在没有 PaiWork 的 Codex / Claude Code / Cursor / OpenCode 等 Agent 环境中运行
-
-## 不适合
-
-- 直接跟单或生成交易建议
-- 把博主观点当作事实或 Current Model
-- 用公开镜像、搜索摘要、UI 自动翻译文本替代 X 原文
-- 不做验证就批量生成公司 thesis
+- 跟踪 Serenity / @aleabitoreddit 的投资观点
+- 把 X 帖子转成可验证的研究线索
+- 维护公司级 research file 和 supply-chain map
+- 生成日度 intake、周度 review 和后续研究任务
 
 ## 它会做什么
 
-- 用 Chrome 登录态、browser bridge、用户导出或手工材料收集 Serenity 更新
-- 拦截 X UI 自动翻译、搜索摘要、公开镜像和未展开原文
-- 生成 `archive/creator-daily/<source>/<date>.md` 每日报告
-- 按 materiality、content type、公司、行业机制和验证路径分类
-- 自动路由到 `source-leads-index.md`、`modules/`、`companies/`、`open-questions.md`
-- route 后要求继续按 progressive research 标准补证据状态，避免只留下空壳文件；不能交付“待验证后补齐”式占位
+- 抓取或整理 Serenity 帖子
+- 识别 ticker、公司、供应链关系和投资 thesis
+- 把观点拆成可验证 claim
+- 更新公司文件和研究 backlog
+- 输出 daily / weekly research report
 
-## 内置来源
+## 当前版本说明
 
-| source_id | 默认定位 | 说明 |
-| --- | --- | --- |
-| `serenity` | `@aleabitoreddit` / X-first | 默认主来源，原 PaiWork Serenity workflow 的通用版。 |
-| `rihardjarc` | `@RihardJarc` / X + newsletter | AI infrastructure、cloud CapEx、TPU/GPU economics、hyperscaler ASIC 线索。 |
-| `leopold` | `@leopoldasch` / X + website | 低频高材料性来源；YouTube 不作为默认内置来源。 |
+这一版是 **PaiWork 适配版**。它默认使用 PaiWork 的研究工作区、analyst/report 工具、市场数据、搜索能力和研究数据源来完成抓取后的分类、验证、公司文件更新与报告生成。
 
-新增信息源按 [`references/source-registry.md`](./references/source-registry.md) 接入。
+如果你在其他 Agent 环境中安装，建议安装后先让 Agent 检查本地可用工具、数据源、浏览器登录态和工作区结构，再把 `SKILL.md` 中的 PaiWork 相关步骤适配为你的本地流程。也可以先收藏这个 Skill，等待后续通用版本更新。
 
-## 核心产物
-
-```text
-dossier/
-├── context.md
-├── current-synthesis.md
-├── model-map.md
-├── source-leads-index.md
-├── open-questions.md
-├── update-log.md
-├── companies/
-├── modules/
-└── archive/
-    ├── creator-daily/
-    ├── creator-raw/
-    └── creator-parsed/
-```
-
-日报放在 `archive/creator-daily/`，主要给人查看；Agent 默认恢复应先读根目录 active surface，而不是翻 archive。
+如果你在 **PaiWork** 上使用，建议安装后直接让 Agent 根据这个 Skill 创建自动化任务，例如定时抓取 Serenity 最新内容、生成每日 intake、更新 thesis / claim / company files，并把日报或周报写入指定研究工作区。这样它就不是一次性整理工具，而是一个持续运行的研究跟踪流程。
 
 ## 怎么触发
 
 ```text
 整理 Serenity 今天的推文
 生成 Serenity daily report
-把 Serenity 这条 X 拆成研究线索
-更新 Serenity 工作区
-把这个博主加入跟踪
+把这条 tweet 变成 thesis tracker
+更新公司研究文件
 ```
 
 ## 安装
 
 ```text
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/serenity-thesis-tracker
-```
-
-## 常用命令
-
-创建 Serenity dossier：
-
-```powershell
-python scripts/scaffold_creator_dossier.py D:\research\creator-serenity --source-id serenity --display-name Serenity --platform x --locator https://x.com/aleabitoreddit --handle-or-channel aleabitoreddit
-```
-
-生成日报：
-
-```powershell
-python scripts/build_daily_report.py --dossier D:\research\creator-serenity --source-id serenity --display-name Serenity --date 2026-06-08 --x-jsonl D:\research\creator-serenity\archive\creator-raw\x\serenity\2026-06-08.jsonl --collection-manifest D:\research\creator-serenity\archive\creator-raw\x\serenity\2026-06-08-manifest.json
-```
-
-拆到研究工作区：
-
-```powershell
-python scripts/route_research_updates.py --dossier D:\research\creator-serenity --source-id serenity --display-name Serenity --date 2026-06-08 --daily-report D:\research\creator-serenity\archive\creator-daily\serenity\2026-06-08.md --x-jsonl D:\research\creator-serenity\archive\creator-raw\x\serenity\2026-06-08.jsonl
-```
-
-验证 Skill：
-
-```powershell
-python scripts/validate_contract.py
+安装后先检查我的本地环境，把 PaiWork 相关工具和数据源适配成可用流程
+如果我在 PaiWork 上使用，请基于这个 skill 创建 Serenity 跟踪自动化任务
 ```
 
 ## 小红书讲解
@@ -111,4 +55,4 @@ python scripts/validate_contract.py
 - [SKILL.md](./SKILL.md)
 - [references/](./references/)
 - [scripts/](./scripts/)
-- [fixtures/](./fixtures/)
+- [assets/](./assets/)

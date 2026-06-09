@@ -4,7 +4,7 @@
 
 #### 我在小红书分享的 AI Agent Skills，都整理在这里
 
-[![Skills](https://img.shields.io/badge/Skills-6-10B981?style=for-the-badge)](#skills)
+[![Skills](https://img.shields.io/badge/Skills-7-10B981?style=for-the-badge)](#skills)
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-8B5CF6?style=for-the-badge)](#install)
 [![Codex](https://img.shields.io/badge/Codex-Ready-111827?style=for-the-badge&logo=openai&logoColor=white)](#install)
 [![Xiaohongshu](https://img.shields.io/badge/小红书-Alpha%20Mao-FF2442?style=for-the-badge)](#about)
@@ -29,7 +29,8 @@
 |---|---|---|---|
 | Progressive Investment Research | 把零散材料、判断和数字维护成可持续更新的投研工作区 | 我用 Skill 搭了个持续更新的投研工作区<br><http://xhslink.com/o/4GUbrB6dvLr> | [`skills/progressive-investment-research`](./skills/progressive-investment-research/) |
 | Technology Mapping | 从一个硬科技关键词出发，生成技术源流、学术谱系和商业化图谱 | 一个 Skill 搞定硬科技投资中的技术 mapping<br><http://xhslink.com/o/9vGoxXSqLrS> | [`skills/technology-mapping`](./skills/technology-mapping/) |
-| Serenity Thesis Tracker | 把 Serenity 的 X 更新转成非 PaiWork 依赖的可验证研究工作区 | 把 Serenity 的 X 变成可持续追踪的研究<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
+| Serenity Thesis Tracker | 把 Serenity 的 X 帖子变成可持续追踪的投资研究线索 | 把 Serenity 的 X 变成可持续追踪的研究<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
+| Creator Research Tracker | 把 X / YouTube / newsletter 博主更新变成 progressive research 工作区增量 | Serenity 案例的通用本地版<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/creator-research-tracker`](./skills/creator-research-tracker/) |
 | UI Showreel Forge | 把 UI 截图变成风格一致的 showreel 垫图和视频导演脚本 | 运镜乱飘？一个 Skill 搞定 UI 演示动画<br><http://xhslink.com/o/7LmFimZYx8m> | [`skills/ui-showreel-forge`](./skills/ui-showreel-forge/) |
 | Market Sizing | 用 Fermi、Monte Carlo 和公开数据源估算 TAM / SAM / SOM | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
@@ -51,6 +52,7 @@
 ```text
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/progressive-investment-research
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/technology-mapping
+帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/creator-research-tracker
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/ui-showreel-forge
 ```
 
@@ -128,24 +130,53 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 
 > 好的 X 信息源不是看完就划走，而是要变成可追踪、可验证、可复盘的研究资产。
 
-这个 Skill 是原 PaiWork 版 Serenity 跟踪流程的通用本地版。它把 Serenity 的 X 更新整理成每日报告、source leads、公司页、行业模块和 open questions，并对齐 `progressive-investment-research` 的工作区标准。
+这个 Skill 用来把 Serenity 的 X 帖子整理成投资 thesis、claim ledger、公司研究文件、供应链关系图、日报、周报和后续研究 backlog。
 
 **适合**
 
-- 跟踪 Serenity / `@aleabitoreddit`
-- 把碎片化 X 帖子转成可验证研究线索
-- 在 Codex、Claude Code、Cursor 等本地 Agent 中运行，不依赖 PaiWork 专有工具
+- 跟踪高质量投资信息源
+- 把碎片化 X 帖子转成结构化研究线索
+- 做公司、供应链、ticker 和 thesis 的连续跟踪
 
 **触发方式**
 
 ```text
 整理 Serenity 今天的推文
 生成 Serenity daily report
-把这条 X 拆成研究线索
-更新 Serenity 工作区
+把这条 tweet 变成 thesis tracker
+更新公司研究文件
 ```
 
 → [SKILL.md](./skills/serenity-thesis-tracker/SKILL.md) · 小红书讲解：<http://xhslink.com/o/4y5hTyS0hnf>
+
+</td></tr>
+</table>
+
+<table>
+<tr><td>
+
+### Creator Research Tracker
+
+> 把“我每天看了哪些博主”升级成“哪些观点进入了可验证的研究工作区”。
+
+这个 Skill 是 Serenity 案例的通用本地版。它保留每日跟踪体验，但不依赖 PaiWork 专有工具：先生成 creator daily report，再把有价值内容拆到 progressive research 的 source leads、公司页、行业模块和开放问题。
+
+**适合**
+
+- 跟踪 X/Twitter、YouTube、newsletter 或类似个人信息源
+- 用 Chrome 登录态抓 X 原文，并拦截 UI 自动翻译、搜索摘要和公开镜像
+- 把博主观点转成可审计的公司、行业和机制研究增量
+
+**触发方式**
+
+```text
+把这个博主加入跟踪
+生成 RihardJarc daily report
+把这条 X 拆成研究线索
+更新 creator 研究工作区
+```
+
+→ [SKILL.md](./skills/creator-research-tracker/SKILL.md) · 小红书讲解：<http://xhslink.com/o/4y5hTyS0hnf>
 
 </td></tr>
 </table>

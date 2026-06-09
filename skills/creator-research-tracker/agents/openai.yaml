@@ -1,0 +1,4 @@
+interface:
+  display_name: "博主研究跟踪"
+  short_description: "把 X/YouTube 博主更新转成研究工作区增量。"
+  default_prompt: "使用 $creator-research-tracker 跟踪 X/Twitter、YouTube、newsletter 或类似个人信息源，生成每日报告，并判断哪些观点应写入 progressive research 工作区。"

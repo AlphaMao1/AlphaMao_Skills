@@ -54,8 +54,8 @@ def main() -> int:
         except Exception as exc:
             failures.append(f"{rel} is not valid JSON: {exc}")
             continue
-        if payload.get("name") != "serenity-thesis-tracker":
-            failures.append(f"{rel} name should be serenity-thesis-tracker")
+        if payload.get("name") != "creator-research-tracker":
+            failures.append(f"{rel} name should be creator-research-tracker")
         if payload.get("skills") != "./":
             failures.append(f"{rel} skills should be ./")
 

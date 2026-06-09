@@ -27,6 +27,15 @@
     "status": "public"
   },
   {
+    "name": "creator-research-tracker",
+    "display_name": "Creator Research Tracker",
+    "path": "skills/creator-research-tracker",
+    "skill_md": "skills/creator-research-tracker/SKILL.md",
+    "xiaohongshu_title": "Serenity 案例的通用本地版",
+    "xiaohongshu_url": "http://xhslink.com/o/4y5hTyS0hnf",
+    "status": "public"
+  },
+  {
     "name": "ui-showreel-forge",
     "display_name": "UI Showreel Forge",
     "path": "skills/ui-showreel-forge",
