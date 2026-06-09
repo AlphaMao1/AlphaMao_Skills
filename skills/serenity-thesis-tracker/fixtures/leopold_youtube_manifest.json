@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-06-08T05:00:00+00:00",
+  "lang": "en.*",
+  "channel_entries": [
+    {
+      "id": "leopold_fixture_1",
+      "title": "Situational Awareness and the AGI scaling decade",
+      "url": "https://www.youtube.com/watch?v=leopold_fixture_1",
+      "channel": "Leopold Fixture"
+    }
+  ],
+  "results": [
+    {
+      "url": "https://www.youtube.com/watch?v=leopold_fixture_1",
+      "ok": true,
+      "raw_subtitle_paths": [],
+      "text_paths": [
+        "fixtures/leopold_transcript.txt"
+      ],
+      "stderr": ""
+    }
+  ]
+}

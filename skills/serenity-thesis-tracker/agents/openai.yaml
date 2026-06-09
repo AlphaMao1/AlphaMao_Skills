@@ -1,4 +1,4 @@
 interface:
-  display_name: "Serenity Thesis Tracker"
-  short_description: "PaiWork-first Serenity investment thesis tracker"
-  default_prompt: "Process Serenity tweets into PaiWork research assets."
+  display_name: "博主研究跟踪"
+  short_description: "把 X/YouTube 博主更新转成研究工作区增量。"
+  default_prompt: "使用 $serenity-thesis-tracker 跟踪 Serenity 或类似博主更新，生成每日报告，并判断哪些观点应写入研究工作区。"

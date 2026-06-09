@@ -29,7 +29,7 @@
 |---|---|---|---|
 | Progressive Investment Research | 把零散材料、判断和数字维护成可持续更新的投研工作区 | 我用 Skill 搭了个持续更新的投研工作区<br><http://xhslink.com/o/4GUbrB6dvLr> | [`skills/progressive-investment-research`](./skills/progressive-investment-research/) |
 | Technology Mapping | 从一个硬科技关键词出发，生成技术源流、学术谱系和商业化图谱 | 一个 Skill 搞定硬科技投资中的技术 mapping<br><http://xhslink.com/o/9vGoxXSqLrS> | [`skills/technology-mapping`](./skills/technology-mapping/) |
-| Serenity Thesis Tracker | 把 Serenity 的 X 帖子变成可持续追踪的投资研究线索 | 把 Serenity 的 X 变成可持续追踪的研究<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
+| Serenity Thesis Tracker | 把 Serenity 的 X 更新转成非 PaiWork 依赖的可验证研究工作区 | 把 Serenity 的 X 变成可持续追踪的研究<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
 | UI Showreel Forge | 把 UI 截图变成风格一致的 showreel 垫图和视频导演脚本 | 运镜乱飘？一个 Skill 搞定 UI 演示动画<br><http://xhslink.com/o/7LmFimZYx8m> | [`skills/ui-showreel-forge`](./skills/ui-showreel-forge/) |
 | Market Sizing | 用 Fermi、Monte Carlo 和公开数据源估算 TAM / SAM / SOM | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
@@ -128,21 +128,21 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 
 > 好的 X 信息源不是看完就划走，而是要变成可追踪、可验证、可复盘的研究资产。
 
-这个 Skill 用来把 Serenity 的 X 帖子整理成投资 thesis、claim ledger、公司研究文件、供应链关系图、日报、周报和后续研究 backlog。
+这个 Skill 是原 PaiWork 版 Serenity 跟踪流程的通用本地版。它把 Serenity 的 X 更新整理成每日报告、source leads、公司页、行业模块和 open questions，并对齐 `progressive-investment-research` 的工作区标准。
 
 **适合**
 
-- 跟踪高质量投资信息源
-- 把碎片化 X 帖子转成结构化研究线索
-- 做公司、供应链、ticker 和 thesis 的连续跟踪
+- 跟踪 Serenity / `@aleabitoreddit`
+- 把碎片化 X 帖子转成可验证研究线索
+- 在 Codex、Claude Code、Cursor 等本地 Agent 中运行，不依赖 PaiWork 专有工具
 
 **触发方式**
 
 ```text
 整理 Serenity 今天的推文
 生成 Serenity daily report
-把这条 tweet 变成 thesis tracker
-更新公司研究文件
+把这条 X 拆成研究线索
+更新 Serenity 工作区
 ```
 
 → [SKILL.md](./skills/serenity-thesis-tracker/SKILL.md) · 小红书讲解：<http://xhslink.com/o/4y5hTyS0hnf>
