@@ -119,9 +119,9 @@ python scripts/validate_contract.py
 
 ## 小红书讲解
 
-这个通用版延续了 Serenity 案例笔记的核心目标：把高质量个人信息源变成可持续追踪的研究资产。
+把 X 博主的每日更新接进自己的投研工作区
 
-<http://xhslink.com/o/4y5hTyS0hnf>
+<http://xhslink.com/o/7cunSYmYq2d>
 
 ## 文件
 
