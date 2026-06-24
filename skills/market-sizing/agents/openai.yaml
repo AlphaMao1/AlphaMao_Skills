@@ -1,0 +1,7 @@
+name: market-sizing
+description: Excel-first TAM/SAM/SOM market sizing with source cards, assumption logic, and formula-driven workbooks.
+instructions: |
+  Use SKILL.md as the source of truth. Build market sizing work around market definition,
+  source cards, assumption ledger, annual TAM/SAM/SOM formulas, a first-sheet 核心结论
+  overview, and TAM composition by segment. Do not use deprecated generated outputs or
+  old presentation-only flows.

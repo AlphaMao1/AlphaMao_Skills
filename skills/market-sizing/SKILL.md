@@ -1,401 +1,254 @@
 ---
 name: market-sizing
 description: 市场规模测算工具 (TAM/SAM/SOM)。适用于用户提到「市场规模」「market size」「TAM」「SAM」「SOM」或需要估算目标市场大小时使用。
-version: 2.0.2
 ---
 
-# Market Sizing Skill V2
+# Market Sizing
 
-专业级市场规模测算工具，支持 Fermi 估算、Monte Carlo 模拟和多数据源集成。
+这个 skill 的目标不是制造精确幻觉，而是在市场不确定时，基于清楚的市场定义、可复核的数据和自洽的公式链，建立一个可在 Excel 中继续推演的规模量级判断。
 
-## 核心能力
+## 工作原则
 
-| 能力 | 描述 |
+- 先定义市场，再找数据，再建公式。市场边界不清时，不开始计算。
+- Excel 是核心交付物，所有 TAM/SAM/SOM 关键数值必须由公式承载；Markdown 只解释公式、来源和判断。
+- Excel 第一页必须是 `核心结论` 总览页：用一页展示未来 5 年逐年 TAM/SAM/SOM、TAM 由哪些市场组成、各市场逐年规模和一句话判断。
+- 可以做假设，但不能跳步骤。比例、渗透率、市占率、采用率等必须写出来源、类比、约束或推导逻辑。
+- 不使用 Monte Carlo，不输出 HTML/UI。敏感性用 Excel 中的确定性情景和关键驱动测试表达。
+- 不给必要但 imperfect 的数据贴无意义的「低可信」标签。重点判断是：这是当前最好可用数据吗？如何被转换进公式？哪些结论最受它影响？
+- 交叉验证用于发现口径差异，不用于强行调参让两个结果一致。
+
+## 必读参考
+
+- `references/methodology.md`：第一性原理、公式链和假设纪律。
+- `references/data_sources.md`：数据源层级、source card 和常用 API 路线。
+- `references/fermi_patterns.md`：人口、机构、替代、价值链、价值基础等分解模式。
+- `references/industry_templates.md`：SaaS、Marketplace、Consumer、B2B、Hardware 的常见变量。
+
+## 标准流程
+
+### 1. 锁定市场边界
+
+必须明确：
+
+- 产品/服务：包含什么，排除什么。
+- 地理范围：国家、区域、城市或全球口径。
+- 客户/使用者：B2B/B2C、细分人群、机构类型、购买主体。
+- 时间口径：基准年、预测期、现价/不变价、年化/一次性。
+- 单位：金额、销量、用户数、设备数、容量或其他。
+
+如果边界有两种合理解释，先拆成两个口径，不要混在一个数字里。
+
+### 2. 选择计算架构
+
+优先选择能解释市场形成机制的方法：
+
+- Top-down：行业总量 -> 细分口径 -> 可服务范围。
+- Bottom-up：客户/用户/设备数 -> 采用率/频率 -> 单价/ARPU。
+- Substitution：现有市场 -> 替代率 -> 价格或价值调整。
+- Value-chain：终端市场 -> 价值环节占比 -> 可服务部分。
+- Value-based：目标对象数 -> 问题频率/损失/收益 -> 愿付比例。
+
+常用做法是主模型 + 一条 side check。side check 可以很粗，但必须能解释结果是否在合理量级。
+
+### 3. 建 source card
+
+每条进入模型的数据都要能追溯到 source card：
+
+| 字段 | 要求 |
 |------|------|
-| **Fermi 估算** | 5 种分解模式，结构化计算 |
-| **Monte Carlo** | 输出置信区间，而非单点估计 |
-| **数据 API** | 6 个免费数据源 (AkShare, FRED, World Bank 等) |
-| **专业报告** | Markdown + HTML 交互图表 |
+| `source_id` | 稳定编号，如 `SRC-001` |
+| `provider` | 数据提供方 |
+| `dataset_or_title` | 数据集、报告或页面名称 |
+| `metric` | 使用的指标 |
+| `geography` / `period` / `unit` | 口径 |
+| `value_or_path` | 数值或提取路径 |
+| `url_or_endpoint` | URL/API endpoint/文件路径 |
+| `accessed_at` | 访问日期 |
+| `transform_note` | 如何清洗、换算、筛选 |
+| `used_in` | 用于哪个假设或公式 |
 
----
+### 4. 写 assumption ledger
 
-## 触发条件
-
-当用户提到以下内容时触发：
-- 「市场规模」「市场有多大」「market size」
-- 「TAM」「SAM」「SOM」
-- 「估算市场」「市场测算」
-- 明确的市场定义请求
-
----
-
-## 工作流程
-
-### Phase 1: 信息收集 (必须先完成)
-
-**在开始任何计算之前，必须收集以下信息**:
-
-```markdown
-## 🎯 Clarifying Questions
-
-1. **市场定义**
-   - 产品/服务的边界是什么？
-   - 包含什么？排除什么？
-   - 是否包含售后服务/MRO？
-
-2. **客户画像**
-   - 目标客户是谁？B2B 还是 B2C？
-   - 企业规模/人口特征要求？
-
-3. **地域范围**
-   - 全球/区域/单一国家？
-   - 是否含港澳台？
-
-4. **时间范围**
-   - 当前年份还是预测期？
-   - 需要几年预测？
-
-5. **数据可得性**
-   - 用户有现成资料吗？
-   - 是否有竞品信息？
-```
-
-**只有在收集完必要信息后，才能进入计算阶段。**
-
-### Phase 2: 方法选择
-
-根据数据可得性选择方法：
-
-```mermaid
-graph TD
-    A[有直接市场数据?] -->|是| B[Top-Down 方法]
-    A -->|否| C{目标客户类型?}
-    C -->|B2C 消费者| D[人口基数法]
-    C -->|B2B 企业| E[机构基数法]
-    C -->|替代现有方案| F[替代法]
-    C -->|产业链环节| G[价值链法]
-    C -->|无法归类| H[价值基础法]
-```
-
-详细方法说明见 [fermi_patterns.md](references/fermi_patterns.md)。
-如果已知行业类型 (SaaS/Marketplace/Consumer/B2B/Hardware)，优先参考 [industry_templates.md](references/industry_templates.md)。
-
-### Phase 3: 数据获取
-
-使用 `data_fetcher.py` 获取真实数据支撑假设：
-
-```python
-from scripts.data_fetcher import DataFetcher
-
-df = DataFetcher()
-
-# 中国 GDP
-gdp = df.get_china_gdp()
-
-# 行业数据
-industry = df.search_akshare_functions("汽车")
-```
-
-详细 API 说明见 [data_sources.md](references/data_sources.md)。
-
-### Phase 4: Fermi 计算
-
-> 🚨 **数据三原则** (强制): 每一个数字只能是以下三种之一，不允许凭空出现任何数据:
-> | 类型 | 标记 | 要求 |
-> |------|------|------|
-> | **引用** | 📚 | 来自可靠报告/公开数据，必须标注具体来源 (报告名+页码/URL) |
-> | **计算** | 🧮 | 由已有数据推导得出，必须写出完整计算公式 |
-> | **假设** | ⚠️ | 无法获取的合理估计，必须说明估计依据并给出范围 |
-
-使用 `fermi_calculator.py` 执行结构化计算：
-
-```python
-from scripts.fermi_calculator import FermiCalculator
-
-calc = FermiCalculator()
-
-result = calc.population_based(
-    base_population=1.4e9,
-    filters=[
-        ("城市人口", 0.65),
-        ("20-50岁", 0.45),
-        ("目标用户", 0.20),
-    ],
-    penetration_rate=0.8,
-    average_spend=100,
-    frequency=12,
-    unit="元"
-)
-
-print(result)
-```
-
-### Phase 5: Monte Carlo 模拟
-
-使用 `monte_carlo.py` 量化不确定性：
-
-```python
-from scripts.monte_carlo import MonteCarloSimulator, Assumption
-
-sim = MonteCarloSimulator(seed=42)
-
-result = sim.run(
-    assumptions={
-        "市场基数(亿)": Assumption(min=20, max=35, most_likely=25),
-        "目标占比": Assumption(min=0.35, max=0.55, most_likely=0.45),
-        "市占率": Assumption(min=0.10, max=0.20, most_likely=0.15),
-    },
-    formula=lambda **k: k["市场基数(亿)"] * k["目标占比"] * k["市占率"],
-    n_simulations=10000,
-    unit="亿元"
-)
-
-print(result)
-# 输出 90% 置信区间和敏感性分析
-```
-
-### Phase 6: 生成报告
-
-使用 `report_generator.py` 输出专业报告。报告格式选择见 [presentation_guide.md](references/presentation_guide.md)。
-
-```python
-from scripts.report_generator import ReportGenerator, MarketSizingData
-
-gen = ReportGenerator()
-
-data = MarketSizingData(
-    market_name="中国航空活塞发动机 (200-500HP)",
-    geography="中国大陆",
-    base_year=2024,
-    forecast_years=5,
-    tam=25.5,
-    sam=11.5,
-    som=1.7,
-    unit="亿元",
-    cagr=0.08,
-    monte_carlo_result=result.to_dict(),
-)
-
-gen.generate(data, output_dir="./output", formats=["md", "html", "xlsx"])
-```
-
-> [!IMPORTANT]
-> **Excel 公式链依赖 `assumptions` 中的 `key` 字段命名**。必须遵循以下规范，否则 Excel 将降级为静态值。
-
-#### Assumption Key 命名规范 (强制)
-
-Excel 引擎通过 `key` 名自动检测 Fermi 分解模式并构建公式链。
-
-**模式 1: 机构基数法 (institution_based)**
-
-每个分段使用 `{prefix}_count` + `{prefix}_adopt` + `{prefix}_price` 三件套：
-
-```python
-# 段前缀可自由命名 (ka/mid/smb/enterprise/startup...)
-# 引擎自动检测 *_count/*_vol + *_adopt/*_rate + *_price
-{"key": "ka_count",  "numeric_value": 5000,   ...},
-{"key": "ka_adopt",  "numeric_value": 0.85,   ...},
-{"key": "ka_price",  "numeric_value": 150,    ...},
-```
-
-**模式 2: 人口基数法 (population_based)** — 使用固定 key 名：
-
-| key | 含义 | 示例 |
-|-----|------|------|
-| `base_pop` | 基础人口 (亿人) | 9.3 |
-| `core_pop_pct` | 核心人群占比 | 0.45 |
-| `pene_rate` | 渗透率 | 0.65 |
-| `freq` | 消费频次 | 45 |
-| `price` | 单价 (元) | 5.5 |
-
-**模式 3: 替代法 (substitution_based):**
-
-| key | 含义 |
-|-----|------|
-| `existing_market` | 现有市场规模 |
-| `substitution_rate` | 替代率 |
-| `price_premium` | 价格系数 (可选, 默认 1.0) |
-
-**模式 4: 价值链法 (value_chain_based):**
-
-| key | 含义 |
-|-----|------|
-| `end_market` | 终端市场规模 |
-| `value_share` | 环节价值占比 |
-
-**模式 5: 价值基础法 (value_based):**
-
-| key | 含义 |
-|-----|------|
-| `target_count` | 目标客户数 |
-| `prob_freq` | 问题频率 (可选) |
-| `prob_cost` | 单次问题成本 |
-| `wtp_ratio` | 愿付比例 |
-
-**通用 key (所有模式都需要):**
-
-| key | 含义 | Excel 用途 |
-|-----|------|-----------|
-| `sam_ratio` | SAM/TAM 比例 | `SAM = TAM × sam_ratio` |
-| `som_share` | 目标市占率 | `SOM = SAM × som_share` |
-| `cagr` | 复合增长率 | Growth Forecast 公式 |
-
-**`numeric_value` 规则:** 百分比/比率填小数 (0.85=85%)，金额单位与计算模型一致。
-
-#### Assumption 字段模板 (每项必填)
+每个假设至少包含：
 
 ```python
 {
-    "key": "ka_count",           # 🔴 必填 — 引擎用此构建公式
-    "name": "KA机构数量",         # 🔴 必填 — 显示名
-    "numeric_value": 5000,        # 🔴 必填 — 用于 Excel 计算
-    "value": "5000家",            # 用于 MD/HTML 展示
-    "source": "⚠️ 假设: ...",     # 🔴 必填 — 📚/🧮/⚠️ + 依据
-    "type": "⚠️",                 # 🔴 必填 — 📚/🧮/⚠️
-    "used_in": "Bottom-Up KA",    # 可选 — 标注使用环节
+    "key": "pene_rate",
+    "name": "目标市场渗透率",
+    "numeric_value": 0.20,
+    "unit": "%",
+    "source_ref": "SRC-003",
+    "logic": "甲市场 A/B 渗透率约 60%/40%；乙市场更适合 B 的低部署成本，同时面临 C 替代冲击，且当前教育成本更高，所以基准假设取 20%。",
+    "used_in": "TAM"
 }
 ```
 
----
+禁止「裸比例」：`pene_rate = 5%` 这种没有上下文的假设不能进入最终模型。
 
-## 输出规范
+### 5. 生成 Excel 模型
 
-### 交付物清单
+使用 `scripts/report_generator.py`：
 
-1. **Markdown 报告** - 包含 Mermaid 图表，适合分享和存档
-2. **HTML 报告** - 包含 Plotly 交互图表 (可选)，适合演示
-3. **Excel 分析模型** - 5 个 Sheet (核心假设/TAM_SAM_SOM/Monte Carlo/竞争格局/增长预测)
-4. **假设清单** - 每个假设必须标注类型 (📚/🧮/⚠️) 和来源
+```python
+from scripts.report_generator import MarketSizingData, ReportGenerator
 
-### 报告必含章节 (12 项)
+data = MarketSizingData(
+    market_name="中国某新兴服务市场",
+    geography="中国大陆",
+    base_year=2026,
+    forecast_years=5,
+    tam=9.6,
+    sam=5.76,
+    som=0.288,
+    unit="亿元",
+    cagr=0.08,
+    market_definition={
+        "产品/服务": {"in": "目标服务年费", "out": "硬件一次性收入"},
+        "地理": {"in": "中国大陆", "out": "港澳台及海外"},
+    },
+    market_segments=[
+        {
+            "name": "核心场景 A",
+            "base_value": 6.0,
+            "growth_rate": 0.10,
+            "logic": "由对象数、采用率、年费三项相乘得到，代表最大组成市场。",
+        },
+        {
+            "name": "验证场景 B",
+            "base_value": 3.6,
+            "growth_rate": 0.05,
+            "logic": "由相邻场景 proxy 推导，体量较小但更适合早期验证。",
+        },
+    ],
+    source_cards=[
+        {
+            "source_id": "SRC-001",
+            "provider": "World Bank",
+            "dataset_or_title": "Population, total",
+            "metric": "SP.POP.TOTL",
+            "geography": "China",
+            "period": "2024",
+            "unit": "people",
+            "value_or_path": "1.408B",
+            "url_or_endpoint": "https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL",
+            "accessed_at": "2026-06-24",
+            "transform_note": "换算为亿人后进入 base_pop",
+            "used_in": "base_pop",
+        },
+        {
+            "source_id": "SRC-002",
+            "provider": "内部筛选逻辑",
+            "dataset_or_title": "目标人群筛选假设",
+            "metric": "核心人群占比",
+            "geography": "中国大陆",
+            "period": "基准年",
+            "unit": "%",
+            "value_or_path": "40%",
+            "url_or_endpoint": "logic-only",
+            "accessed_at": "2026-06-24",
+            "transform_note": "按年龄、收入和使用场景三层筛选。",
+            "used_in": "core_pop_pct",
+        },
+        {
+            "source_id": "SRC-003",
+            "provider": "Comparable market scan",
+            "dataset_or_title": "相邻市场渗透率对比",
+            "metric": "penetration benchmark",
+            "geography": "中国大陆",
+            "period": "latest available",
+            "unit": "%",
+            "value_or_path": "相邻市场约 40%",
+            "url_or_endpoint": "manual research notes",
+            "accessed_at": "2026-06-24",
+            "transform_note": "因教育成本和替代品冲击下调至 20%。",
+            "used_in": "pene_rate",
+        },
+        {
+            "source_id": "SRC-004",
+            "provider": "业务机制假设",
+            "dataset_or_title": "购买频次假设",
+            "metric": "年购买频次",
+            "geography": "中国大陆",
+            "period": "基准年",
+            "unit": "次/年",
+            "value_or_path": "12",
+            "url_or_endpoint": "logic-only",
+            "accessed_at": "2026-06-24",
+            "transform_note": "按月度订阅或月度复购处理。",
+            "used_in": "freq",
+        },
+        {
+            "source_id": "SRC-005",
+            "provider": "公开价格页/价格带",
+            "dataset_or_title": "目标服务价格假设",
+            "metric": "单次价格",
+            "geography": "中国大陆",
+            "period": "基准年",
+            "unit": "元",
+            "value_or_path": "100",
+            "url_or_endpoint": "manual pricing notes",
+            "accessed_at": "2026-06-24",
+            "transform_note": "取公开价格带中位数。",
+            "used_in": "price",
+        }
+    ],
+    assumptions=[
+        {"key": "base_pop", "name": "基础人口", "numeric_value": 1.0, "unit": "亿人", "source_ref": "SRC-001", "logic": "只计入目标城市人群，按总人口筛选后换算。"},
+        {"key": "core_pop_pct", "name": "核心人群占比", "numeric_value": 0.40, "unit": "%", "source_ref": "SRC-002", "logic": "按年龄、收入和场景三层筛选得到。"},
+        {"key": "pene_rate", "name": "付费渗透率", "numeric_value": 0.20, "unit": "%", "source_ref": "SRC-003", "logic": "参考相邻市场 40% 渗透率，并因教育成本和替代品冲击折半。"},
+        {"key": "freq", "name": "年购买频次", "numeric_value": 12, "unit": "次/年", "source_ref": "SRC-004", "logic": "按月度订阅/复购频率处理。"},
+        {"key": "price", "name": "单次价格", "numeric_value": 100, "unit": "元", "source_ref": "SRC-005", "logic": "参考公开价格带的中位数。"},
+        {"key": "sam_ratio", "name": "可服务比例", "numeric_value": 0.60, "unit": "%", "logic": "扣除非目标渠道、地域和暂不可服务客户。"},
+        {"key": "som_share", "name": "年度可获取份额", "numeric_value": 0.05, "unit": "%", "logic": "按目标进入节奏、销售产能和竞品份额推导。"},
+        {"key": "cagr", "name": "年增长率", "numeric_value": 0.08, "unit": "%", "logic": "由用户增长、价格变化和渗透率提升合成。"},
+    ],
+)
 
-- [ ] **执行摘要**: TAM/SAM/SOM/CAGR 卡片 + 核心洞察
-- [ ] **市场边界定义**: 产品/地理/渠道/时间 4 维含排除表
-- [ ] **核心假设清单**: 每项标注 📚引用/🧮计算/⚠️假设
-- [ ] **Bottom-Up 分解**: 多层 Fermi 分解树 + 分层计算表
-- [ ] **Top-Down 验证**: 行业报告→筛选→结果
-- [ ] **交叉验证对比表**: 方法/结果/偏差
-- [ ] **增长预测**: 年度预测表 + CAGR + 驱动力与风险
-- [ ] **Monte Carlo 置信区间**: 假设分布表 + P5/P50/P95
-- [ ] **敏感性分析**: Tornado 排序 + 解读与行动建议
-- [ ] **竞争格局**: 主要玩家 + 市占率 + CR3集中度
-- [ ] **风险与局限性**
-- [ ] **数据来源汇总**
+ReportGenerator().generate(data, output_dir="./output", formats=["xlsx", "md"])
+```
 
+默认工作簿包含：
 
----
+1. `核心结论`：给用户看的首页，展示逐年 TAM/SAM/SOM、TAM 构成、末年占比和一句话判断。
+2. `Market_Definition`：市场边界、地理、客户、时间和单位口径。
+3. `Source_Cards`：所有进入模型的数据来源和转换说明。
+4. `Assumptions`：所有可调假设及 `logic`。
+5. `Calculation_Model`：中间公式链。
+6. `TAM_SAM_SOM`：年度 TAM/SAM/SOM 明细，必须是单年口径，不是 5 年合计。
+7. `Checks`：公式层级、source、logic、单位和构成合计检查。
 
-## 质量检查 (Sanity Check)
+### 6. 交付 Markdown 备忘
 
-在完成分析后，**必须**进行以下检查：
+Markdown 必须回答：
 
-### 🔴 强制项：交叉验证
+- 未来 5 年每一年的 TAM/SAM/SOM 是多少，不能只写预测期合计或末年数字。
+- TAM 由哪几个市场组成，每个市场逐年多大，末年占比是多少。
+- 市场边界是什么。
+- 核心公式链是什么。
+- 哪些数据来自 source card，哪些是推导，哪些是假设。
+- TAM/SAM/SOM 是如何从公式得出的。
+- side check 是否支持这个量级。
+- 哪些变量最能改变结论，以及 Excel 中对应哪个输入单元。
 
-任何市场规模估算都**必须**使用至少两种方法进行交叉验证：
+## 质量门
 
-| 方法组合 | 适用场景 |
-|----------|----------|
-| Top-Down + Bottom-Up | 最常用，大多数 B2C 市场 |
-| 人口基数 + 机构基数 | 同时覆盖 B2C 和 B2B |
-| 替代法 + 价值链法 | 新品类进入成熟市场 |
+完成前必须检查：
 
-**验证标准**：
-- 偏差 **<20%**: 合理，取加权平均或说明差异原因即可
-- 偏差 **20-50%**: 需分析差异原因（口径不同？假设偏差？），调整后重新验证
-- 偏差 **>50%**: 必须检查关键假设，可能存在根本性问题
-
-> ⚠️ **禁止为了凑近偏差者而恶意调整假设**。偏差本身是信号，不是错误。如果两种方法差异很大，应该诚实报告并分析原因，而不是修改数字让它们“看起来一致”。
-
-### 其他检查
-
-1. **数量级验证**: 结果是否在合理范围内？
-2. **对标检查**: 与已知类似市场相比是否合理？
-3. **假设敏感性**: 哪些假设对结果影响最大？
-
----
+- 没有 Monte Carlo、HTML、Plotly 或展示 UI 作为交付要求。
+- 有 `核心结论` 首页，且第一页不堆过程，只放核心读数、年度表、市场构成和一句话判断。
+- TAM/SAM/SOM 是逐年单年口径；不得用 5 年累计值冒充年度市场规模。
+- 如果 TAM 由多个细分市场组成，组成项合计必须能对回总 TAM；如果对不回，必须解释口径差异并在 Checks 中提示。
+- Excel 关键输出单元是公式，不是手填静态值。
+- 所有比例、渗透率、采用率、市占率都有 `logic`。
+- 假设中的 `source_ref` 能在 source card 中找到，或明确说明为什么只能用逻辑假设。
+- TAM >= SAM >= SOM；如果不成立，必须解释口径，否则修正模型。
+- 单位换算可追溯，例如人、亿人、元、亿元不能混用。
+- side check 与主模型差异较大时，报告差异来源，而不是为了接近结果改假设。
 
 ## 常见错误
 
-### 错误 1: 混淆 TAM 和 SAM
-- ✘ 用整个市场作为自己的可触达市场
-- ✔ TAM 是理论上限，SAM 要包含产品/地域/客群筛选
-
-### 错误 2: SOM 过于激进
-- ✘ 新进入者 5 年内声称能拿 10%+ 市场
-- ✔ 新进入者通常 3 年 2-3%，5 年 5%，有网络效应的行业可更高
-
-### 错误 3: 只用 Top-Down
-- ✘ 仅引用行业报告数字，不做 Bottom-Up 验证
-- ✔ Top-Down 只是起点，必须用 Bottom-Up 交叉验证
-
-### 错误 4: 樱桃挑选数据
-- ✘ 混用不同年份、不同口径的数据
-- ✔ 保持数据源一致，明确标注年份和口径
-
-### 错误 5: 忽视市场动态
-- ✘ 把市场规模当作静态数字
-- ✔ 必须考虑 CAGR、竞争格局变化、政策影响
-
----
-
-## 文件结构
-
-```
-market-sizing/
-├── SKILL.md                         # 本文件
-├── references/
-│   ├── methodology.md               # 方法论详解
-│   ├── fermi_patterns.md            # Fermi 分解模式库 (含深度指南)
-│   ├── industry_templates.md        # 行业特化模板 (SaaS/Marketplace/Consumer/B2B/Hardware)
-│   ├── presentation_guide.md        # 呈现策略指南 (投资人 vs 战略)
-│   ├── data_sources.md              # 数据源使用指南
-│   └── prompts.md                   # 后续分析提示库
-├── examples/
-│   ├── tech_ai_dev_tools.md         # 完整案例: 科技 (AI 开发工具)
-│   ├── consumer_prefab_food.md      # 完整案例: 消费 (预制菜)
-│   └── software_finance_saas.md     # 完整案例: 软件 (财务 SaaS)
-├── scripts/
-│   ├── data_fetcher.py              # 数据 API 封装
-│   ├── fermi_calculator.py          # Fermi 计算引擎
-│   ├── monte_carlo.py               # Monte Carlo 模拟
-│   └── report_generator.py          # 报告生成器
-└── templates/
-    ├── market_sizing_report.md      # Markdown 模板
-    └── market_sizing_template.xlsx  # Excel 模板
-```
-
----
-
-## 依赖安装
-
-```bash
-pip install pandas numpy akshare baostock yfinance pytrends plotly openpyxl
-
-# FRED 需要注册 API Key
-pip install fredapi
-# 设置环境变量 FRED_API_KEY
-
-# World Bank
-pip install wbdata
-```
-
----
-
-## 示例用法
-
-**用户**: 估算中国咖啡市场规模
-
-**AI 响应**:
-
-1. 首先收集信息:
-   - 市场定义: 现磨咖啡 + 即饮咖啡 + 速溶咖啡？
-   - 地域: 中国大陆？
-   - 时间: 2024 年现状？
-
-2. 确认后选择人口基数法
-
-3. 获取数据支撑假设
-
-4. 执行 Fermi 计算 + Monte Carlo
-
-5. 输出完整报告
+- 直接写「渗透率 5%」但没有类比市场、竞争约束、采用路径或销售产能逻辑。
+- 把行业报告里的总市场直接当成自己的 SAM。
+- 只标「数据不确定」却没有说明它如何影响公式。
+- 为了看起来专业而输出复杂图表，却没有留下可编辑、可追踪的 Excel 模型。
+- 使用旧脚本或旧样例中的 HTML/Monte Carlo 输出。

@@ -1,45 +1,102 @@
-# Market Sizing
+# market-sizing
 
-用结构化方法测算 TAM / SAM / SOM，而不是拍脑袋写一个市场规模数字。
+Excel-first TAM/SAM/SOM market sizing skill.
 
-市场规模测算真正重要的不是“数字够不够大”，而是口径、假设、拆解路径和不确定性是否清楚。这个 Skill 把 Fermi 拆解、公开数据源、Monte Carlo 置信区间和结构化报告结合起来。
+## What It Does
 
-## 适合
+- Builds a first-principles market sizing model under uncertainty.
+- Uses Excel formulas as the primary calculation surface.
+- Creates a first-sheet `核心结论` overview with annual TAM/SAM/SOM and TAM composition.
+- Produces a Markdown memo that explains market definition, source cards, formulas, assumptions, side checks, and sensitivities.
+- Allows assumptions, but requires logic for rates, shares, adoption, penetration, and market share.
+- Uses deterministic scenarios and side checks instead of Monte Carlo.
 
-- 投资 memo / 商业计划书里的市场规模测算
-- 判断一个赛道到底有多大
-- 把“市场很大”拆成可讨论、可修改、可验证的假设
-- 输出 TAM / SAM / SOM 和敏感性判断
+## What It Does Not Do
 
-## 它会做什么
+- No Monte Carlo.
+- No HTML report or visual UI.
+- No confidence labels as a substitute for reasoning.
+- No static or cumulative TAM/SAM/SOM numbers when annual formulas can be built.
 
-- 明确市场边界和目标用户
-- 选择 Top-down / Bottom-up / Value-based 等估算路径
-- 进行 Fermi 拆解
-- 在需要时用 Monte Carlo 表达不确定性
-- 输出结构化 Markdown / 图表报告
-
-## 怎么触发
-
-```text
-测算一下这个市场规模
-帮我做 TAM/SAM/SOM
-这个赛道市场有多大
-做一个 market sizing
-```
-
-## 安装
+## Main Files
 
 ```text
-帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/market-sizing
+market-sizing/
+├── SKILL.md
+├── references/
+│   ├── methodology.md
+│   ├── data_sources.md
+│   ├── fermi_patterns.md
+│   └── industry_templates.md
+├── scripts/
+│   ├── data_fetcher.py
+│   ├── fermi_calculator.py
+│   ├── generate_template.py
+│   └── report_generator.py
+└── templates/
+    └── market_sizing_report.md
 ```
 
-## 小红书讲解
+## Dependencies
 
-一个 Skill 搞定 Market Sizing
+Required:
 
-<http://xhslink.com/o/9zGJ009rm21>
+```bash
+pip install openpyxl pandas
+```
 
-## 文件
+Optional data helpers:
 
-- [SKILL.md](./SKILL.md)
+```bash
+pip install fredapi wbdata akshare yfinance pytrends
+```
+
+## Minimal Usage
+
+```python
+from scripts.report_generator import MarketSizingData, ReportGenerator
+
+data = MarketSizingData(
+    market_name="Example Market",
+    geography="China",
+    base_year=2026,
+    forecast_years=5,
+    tam=9.6,
+    sam=5.8,
+    som=0.3,
+    unit="亿元",
+    cagr=0.08,
+    market_segments=[
+        {"name": "核心场景 A", "base_value": 6.0, "growth_rate": 0.10, "logic": "对象数 x 采用率 x 年费。"},
+        {"name": "验证场景 B", "base_value": 3.6, "growth_rate": 0.05, "logic": "由相邻场景 proxy 推导。"},
+    ],
+    source_cards=[
+        {
+            "source_id": "SRC-001",
+            "provider": "World Bank",
+            "dataset_or_title": "Population, total",
+            "metric": "SP.POP.TOTL",
+            "geography": "China",
+            "period": "2024",
+            "unit": "people",
+            "value_or_path": "API series",
+            "url_or_endpoint": "https://api.worldbank.org/v2/country/CN/indicator/SP.POP.TOTL",
+            "accessed_at": "2026-06-24",
+            "transform_note": "Converted to 100m people.",
+            "used_in": "base_pop",
+        }
+    ],
+    assumptions=[
+        {"key": "base_pop", "name": "基础人口", "numeric_value": 1.0, "unit": "亿人", "source_ref": "SRC-001", "logic": "目标城市人口换算。"},
+        {"key": "core_pop_pct", "name": "核心人群占比", "numeric_value": 0.40, "unit": "%", "logic": "年龄、收入和场景筛选。"},
+        {"key": "pene_rate", "name": "付费渗透率", "numeric_value": 0.20, "unit": "%", "logic": "参考相邻市场 40%，因教育成本和替代品冲击折半。"},
+        {"key": "freq", "name": "年购买频次", "numeric_value": 12, "unit": "次/年", "logic": "按月度订阅处理。"},
+        {"key": "price", "name": "单次价格", "numeric_value": 100, "unit": "元", "logic": "公开价格带中位数。"},
+        {"key": "sam_ratio", "name": "可服务比例", "numeric_value": 0.60, "unit": "%", "logic": "扣除不可服务地域、渠道和客户。"},
+        {"key": "som_share", "name": "年度可获取份额", "numeric_value": 0.05, "unit": "%", "logic": "按销售产能、竞品份额和进入节奏估算。"},
+        {"key": "cagr", "name": "年增长率", "numeric_value": 0.08, "unit": "%", "logic": "用户增长、价格变化和渗透率提升合成。"},
+    ],
+)
+
+ReportGenerator().generate(data, "./output", formats=["xlsx", "md"])
+```

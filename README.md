@@ -32,7 +32,7 @@
 | Serenity Thesis Tracker | 把 Serenity 的 X 帖子变成可持续追踪的投资研究线索 | 把 Serenity 的 X 变成可持续追踪的研究<br><http://xhslink.com/o/4y5hTyS0hnf> | [`skills/serenity-thesis-tracker`](./skills/serenity-thesis-tracker/) |
 | Creator Research Tracker | 把 X / YouTube / newsletter 博主更新变成 progressive research 工作区增量 | 把 X 博主的每日更新接进自己的投研工作区<br><http://xhslink.com/o/7cunSYmYq2d> | [`skills/creator-research-tracker`](./skills/creator-research-tracker/) |
 | UI Showreel Forge | 把 UI 截图变成风格一致的 showreel 垫图和视频导演脚本 | 运镜乱飘？一个 Skill 搞定 UI 演示动画<br><http://xhslink.com/o/7LmFimZYx8m> | [`skills/ui-showreel-forge`](./skills/ui-showreel-forge/) |
-| Market Sizing | 用 Fermi、Monte Carlo 和公开数据源估算 TAM / SAM / SOM | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
+| Market Sizing | 用 Excel 公式链、source cards 和逐年 TAM / SAM / SOM 做市场规模测算 | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
 
 ---
@@ -219,7 +219,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 
 > 市场规模不是拍脑袋写一个大数字，而是把假设、口径和不确定性拆开。
 
-这个 Skill 用来做 TAM / SAM / SOM 测算，支持 Fermi 拆解、Monte Carlo 不确定性估计、公开数据源辅助和结构化报告输出。
+这个 Skill 用来做 TAM / SAM / SOM 测算，强调市场边界、source cards、可解释假设、Excel 公式链、逐年核心结论页和结构化备忘。
 
 **适合**
 
