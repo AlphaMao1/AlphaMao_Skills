@@ -4,7 +4,7 @@
 
 #### 我在小红书分享的 AI Agent Skills，都整理在这里
 
-[![Skills](https://img.shields.io/badge/Skills-7-10B981?style=for-the-badge)](#skills)
+[![Skills](https://img.shields.io/badge/Skills-8-10B981?style=for-the-badge)](#skills)
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-8B5CF6?style=for-the-badge)](#install)
 [![Codex](https://img.shields.io/badge/Codex-Ready-111827?style=for-the-badge&logo=openai&logoColor=white)](#install)
 [![Xiaohongshu](https://img.shields.io/badge/小红书-Alpha%20Mao-FF2442?style=for-the-badge)](#about)
@@ -33,6 +33,7 @@
 | Creator Research Tracker | 把 X / YouTube / newsletter 博主更新变成 progressive research 工作区增量 | 把 X 博主的每日更新接进自己的投研工作区<br><http://xhslink.com/o/7cunSYmYq2d> | [`skills/creator-research-tracker`](./skills/creator-research-tracker/) |
 | UI Showreel Forge | 把 UI 截图变成风格一致的 showreel 垫图和视频导演脚本 | 运镜乱飘？一个 Skill 搞定 UI 演示动画<br><http://xhslink.com/o/7LmFimZYx8m> | [`skills/ui-showreel-forge`](./skills/ui-showreel-forge/) |
 | Market Sizing | 用 Excel 公式链、source cards 和逐年 TAM / SAM / SOM 做市场规模测算 | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
+| 直觉泵 | 把《直觉泵》的 77 个思考工具变成 Agent 可以路由、学习和调用的思考工具箱 | 把《直觉泵》的77个思考工具变成一个 skill<br><http://xhslink.com/o/5LGsU9I2FoV> | [`skills/intuition-pumps`](./skills/intuition-pumps/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
 
 ---
@@ -54,6 +55,7 @@
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/technology-mapping
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/creator-research-tracker
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/ui-showreel-forge
+帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/intuition-pumps
 ```
 
 你也可以直接 clone 本仓库，然后把需要的目录复制到自己的 skills 目录：
@@ -236,6 +238,35 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 ```
 
 → [SKILL.md](./skills/market-sizing/SKILL.md) · 小红书讲解：<http://xhslink.com/o/9zGJ009rm21>
+
+</td></tr>
+</table>
+
+<table>
+<tr><td>
+
+### 直觉泵
+
+> 面对一个说不清的问题，先找到合适的思考工具，再继续推理。
+
+这个 Skill 把《直觉泵》的 77 个思考工具整理成 Agent 可以使用的路由器和工具卡。它会先根据问题推荐工具，再读取选定卡片，把强烈直觉拆成可比较的版本、边界、反例、机制和验证动作。
+
+**适合**
+
+- 检查一个观点是否偷换了前提或打成了稻草人
+- 拆开意识、理解、身份、自由和责任等概念混淆
+- 发现解释里的“聪明小人”、魔法步骤或当然跳步
+- 在写作、研究和复杂决策中找到可检查的思考路径
+
+**触发方式**
+
+```text
+帮我为这个问题推荐合适的思考工具
+学习 003 拉波波特
+用 010 小心当然检查这个判断
+```
+
+→ [SKILL.md](./skills/intuition-pumps/SKILL.md) · 小红书讲解：<http://xhslink.com/o/5LGsU9I2FoV>
 
 </td></tr>
 </table>

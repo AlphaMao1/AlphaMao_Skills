@@ -54,6 +54,15 @@
     "status": "public"
   },
   {
+    "name": "intuition-pumps",
+    "display_name": "直觉泵",
+    "path": "skills/intuition-pumps",
+    "skill_md": "skills/intuition-pumps/SKILL.md",
+    "xiaohongshu_title": "把《直觉泵》的77个思考工具变成一个 skill",
+    "xiaohongshu_url": "http://xhslink.com/o/5LGsU9I2FoV",
+    "status": "public"
+  },
+  {
     "name": "stanford-vibe-coding-course",
     "display_name": "Stanford Vibe Coding Course",
     "path": "skills/stanford-vibe-coding-course",

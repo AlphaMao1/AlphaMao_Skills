@@ -1,0 +1,7 @@
+interface:
+  display_name: "直觉泵思考工具"
+  short_description: "路由、学习、选择并应用直觉泵思考工具"
+  default_prompt: "Use $intuition-pumps to recommend thinking tools for my current hard problem."
+
+policy:
+  allow_implicit_invocation: true
