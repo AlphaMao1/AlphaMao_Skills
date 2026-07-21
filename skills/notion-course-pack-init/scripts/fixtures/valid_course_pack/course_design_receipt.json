@@ -1,0 +1,27 @@
+{
+  "schema_version": "notion-course-pack-init.course-design.v1",
+  "course_id": "fixture_course",
+  "status": "calibrated",
+  "captured_at": "2026-07-09T00:00:00+00:00",
+  "learning_goal": "理解并迁移测试材料中的核心机制",
+  "intended_use": "互动学习与复习",
+  "baseline_summary": "用户能解释基础定义，但迁移能力待课堂验证",
+  "preferred_depth": "机制优先，必要时补基础",
+  "first_lesson_entry_point": "N1",
+  "evidence_boundary": "route-calibration-only-not-mastery",
+  "calibration_items": [
+    {
+      "item_id": "CAL-01",
+      "question": "请用一个自己的例子解释材料中的核心机制。",
+      "answer": "用户给出了基础例子，并要求从 N1 开始。",
+      "evidence_source": "user_response",
+      "diagnostic_signal": "可从 N1 进入；不构成 N1 已掌握证据。"
+    }
+  ],
+  "personalized_route": {
+    "status": "calibrated",
+    "start_node_id": "N1",
+    "skip_candidates": [],
+    "bridge_candidates": []
+  }
+}

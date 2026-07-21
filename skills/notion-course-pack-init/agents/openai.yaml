@@ -1,0 +1,5 @@
+interface:
+  display_name: "Notion Course Pack Init"
+  short_description: "Set up Notion workspaces and calibrated Course Packs."
+  default_prompt: "Use $notion-course-pack-init to check my Notion setup, initialize the shared course workspace if needed, fully read my source materials, calibrate the learning route, and create a validated Course Pack."
+  brand_color: "#2563EB"

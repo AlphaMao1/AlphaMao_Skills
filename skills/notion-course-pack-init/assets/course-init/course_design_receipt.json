@@ -1,0 +1,27 @@
+{
+  "schema_version": "notion-course-pack-init.course-design.v1",
+  "course_id": "{{course_id}}",
+  "status": "calibrated",
+  "captured_at": "{{captured_at}}",
+  "learning_goal": "{{learning_goal}}",
+  "intended_use": "{{intended_use}}",
+  "baseline_summary": "{{baseline_summary}}",
+  "preferred_depth": "{{preferred_depth}}",
+  "first_lesson_entry_point": "{{first_lesson_entry_point}}",
+  "evidence_boundary": "route-calibration-only-not-mastery",
+  "calibration_items": [
+    {
+      "item_id": "CAL-01",
+      "question": "{{calibration_question}}",
+      "answer": "{{user_answer}}",
+      "evidence_source": "user_response",
+      "diagnostic_signal": "{{diagnostic_signal}}"
+    }
+  ],
+  "personalized_route": {
+    "status": "calibrated",
+    "start_node_id": "{{start_node_id}}",
+    "skip_candidates": [],
+    "bridge_candidates": []
+  }
+}
