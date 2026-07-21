@@ -35,7 +35,7 @@
 | Market Sizing | 用 Excel 公式链、source cards 和逐年 TAM / SAM / SOM 做市场规模测算 | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
 | 直觉泵 | 把《直觉泵》的 77 个思考工具变成 Agent 可以路由、学习和调用的思考工具箱 | 把《直觉泵》的77个思考工具变成一个 skill<br><http://xhslink.com/o/5LGsU9I2FoV> | [`skills/intuition-pumps`](./skills/intuition-pumps/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
-| Notion Course Pack Init | 把一本书或一门课程初始化成可在 ChatGPT 中持续学习、在 Notion 中保存真实进度的 Course Pack | — | [`skills/notion-course-pack-init`](./skills/notion-course-pack-init/) |
+| Notion Course Pack Init | 把一本书或一门课程初始化成可在 ChatGPT 中持续学习、在 Notion 中保存真实进度的 Course Pack | 怎么用 AI 快速读懂一本书<br><http://xhslink.com/o/AAYwJyc1roT> | [`skills/notion-course-pack-init`](./skills/notion-course-pack-init/) |
 
 ---
 
@@ -325,7 +325,7 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 用 Notion 继续《课程名》
 ```
 
-→ [README](./skills/notion-course-pack-init/README.md) · [SKILL.md](./skills/notion-course-pack-init/SKILL.md)
+→ [README](./skills/notion-course-pack-init/README.md) · [SKILL.md](./skills/notion-course-pack-init/SKILL.md) · 小红书讲解：<http://xhslink.com/o/AAYwJyc1roT>
 
 </td></tr>
 </table>
