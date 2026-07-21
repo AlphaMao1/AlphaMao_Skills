@@ -4,7 +4,7 @@
 
 #### 我在小红书分享的 AI Agent Skills，都整理在这里
 
-[![Skills](https://img.shields.io/badge/Skills-8-10B981?style=for-the-badge)](#skills)
+[![Skills](https://img.shields.io/badge/Skills-9-10B981?style=for-the-badge)](#skills)
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-8B5CF6?style=for-the-badge)](#install)
 [![Codex](https://img.shields.io/badge/Codex-Ready-111827?style=for-the-badge&logo=openai&logoColor=white)](#install)
 [![Xiaohongshu](https://img.shields.io/badge/小红书-Alpha%20Mao-FF2442?style=for-the-badge)](#about)
@@ -35,6 +35,7 @@
 | Market Sizing | 用 Excel 公式链、source cards 和逐年 TAM / SAM / SOM 做市场规模测算 | 一个 Skill 搞定 Market Sizing<br><http://xhslink.com/o/9zGJ009rm21> | [`skills/market-sizing`](./skills/market-sizing/) |
 | 直觉泵 | 把《直觉泵》的 77 个思考工具变成 Agent 可以路由、学习和调用的思考工具箱 | 把《直觉泵》的77个思考工具变成一个 skill<br><http://xhslink.com/o/5LGsU9I2FoV> | [`skills/intuition-pumps`](./skills/intuition-pumps/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
+| Notion Course Pack Init | 把一本书或一门课程初始化成可在 ChatGPT 中持续学习、在 Notion 中保存真实进度的 Course Pack | — | [`skills/notion-course-pack-init`](./skills/notion-course-pack-init/) |
 
 ---
 
@@ -56,6 +57,7 @@
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/creator-research-tracker
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/ui-showreel-forge
 帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/intuition-pumps
+帮我安装这个 skill：https://github.com/AlphaMao1/AlphaMao_Skills/tree/main/skills/notion-course-pack-init
 ```
 
 你也可以直接 clone 本仓库，然后把需要的目录复制到自己的 skills 目录：
@@ -296,6 +298,34 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 ```
 
 → [SKILL.md](./skills/stanford-vibe-coding-course/SKILL.md) · 小红书讲解：<http://xhslink.com/o/1qmfBbWYKku>
+
+</td></tr>
+</table>
+
+<table>
+<tr><td>
+
+### Notion Course Pack Init
+
+> 把一本书或一门课程变成可以持续学习、持续写回的 Notion 课程系统。
+
+它由 Codex 完成材料读取、路线校准、8 页 Course Pack 创建和写后验证；初始化完成后，ChatGPT 从 Notion 读取真实课程状态，一讲一对话地继续推进。
+
+**适合**
+
+- 把一本完整书籍或课程材料初始化成长期学习系统
+- 在 Notion 中保存课程路线、真实进度、Sessions 和候选笔记
+- 让 ChatGPT 每次从同一个课程事实源继续，不依赖聊天记忆
+
+**触发方式**
+
+```text
+初始化我的 Notion 课程工作区
+把这本书做成一个 Course Pack
+用 Notion 继续《课程名》
+```
+
+→ [README](./skills/notion-course-pack-init/README.md) · [SKILL.md](./skills/notion-course-pack-init/SKILL.md)
 
 </td></tr>
 </table>

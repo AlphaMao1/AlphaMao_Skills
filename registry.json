@@ -70,5 +70,14 @@
     "xiaohongshu_title": "斯坦福Vibe Coding课程学习系统开源 之前分享过我用",
     "xiaohongshu_url": "http://xhslink.com/o/1qmfBbWYKku",
     "status": "public"
+  },
+  {
+    "name": "notion-course-pack-init",
+    "display_name": "Notion Course Pack Init",
+    "path": "skills/notion-course-pack-init",
+    "skill_md": "skills/notion-course-pack-init/SKILL.md",
+    "xiaohongshu_title": null,
+    "xiaohongshu_url": null,
+    "status": "public"
   }
 ]

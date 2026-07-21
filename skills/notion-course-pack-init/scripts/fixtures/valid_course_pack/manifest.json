@@ -1,0 +1,376 @@
+{
+  "schema_version": "notion-course-pack-init.manifest.v3",
+  "course_id": "fixture_course",
+  "course_title": "Fixture Course",
+  "created_at": "2026-07-09T00:00:00+00:00",
+  "template_version": "v3",
+  "course_design": {
+    "schema_version": "notion-course-pack-init.course-design.v1",
+    "course_id": "fixture_course",
+    "status": "calibrated",
+    "captured_at": "2026-07-09T00:00:00+00:00",
+    "learning_goal": "理解并迁移测试材料中的核心机制",
+    "intended_use": "互动学习与复习",
+    "baseline_summary": "用户能解释基础定义，但迁移能力待课堂验证",
+    "preferred_depth": "机制优先，必要时补基础",
+    "first_lesson_entry_point": "N1",
+    "evidence_boundary": "route-calibration-only-not-mastery",
+    "calibration_items": [
+      {
+        "item_id": "CAL-01",
+        "question": "请用一个自己的例子解释材料中的核心机制。",
+        "answer": "用户给出了基础例子，并要求从 N1 开始。",
+        "evidence_source": "user_response",
+        "diagnostic_signal": "可从 N1 进入；不构成 N1 已掌握证据。"
+      }
+    ],
+    "personalized_route": {
+      "status": "calibrated",
+      "start_node_id": "N1",
+      "skip_candidates": [],
+      "bridge_candidates": []
+    }
+  },
+  "material_coverage_status": "fully_read",
+  "material_coverage": {
+    "status": "fully_read",
+    "declared_scope": "测试主材料全文",
+    "materials": [
+      {
+        "material_id": "fixture_source",
+        "title": "测试主材料",
+        "source_ref": "fixture://source.md",
+        "declared_scope": "全文",
+        "role": "core",
+        "read_status": "fully_read",
+        "read_ranges": [
+          "全文：第 1-3 节"
+        ],
+        "source_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "mapped_node_ids": [
+          "N1"
+        ]
+      }
+    ],
+    "node_source_map": [
+      {
+        "node_id": "N1",
+        "material_ids": [
+          "fixture_source"
+        ],
+        "source_ranges": [
+          "fixture_source：全文"
+        ]
+      }
+    ]
+  },
+  "evidence_receipt": {
+    "schema_version": "notion-course-pack-init.evidence-receipt.v1",
+    "evidence_source": "codex-notion-readback",
+    "captured_at": "2026-07-09T00:30:00+00:00",
+    "sha256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+  },
+  "notion": {
+    "parent_url": "https://app.notion.com/p/00000000000000000000000000000000",
+    "course_home_url": "https://app.notion.com/p/00000000000000000000000000000001",
+    "pages": {
+      "course_home": "https://app.notion.com/p/00000000000000000000000000000001",
+      "runtime_snapshot": "https://app.notion.com/p/00000000000000000000000000000002",
+      "course_map": "https://app.notion.com/p/00000000000000000000000000000003",
+      "course_state_profile": "https://app.notion.com/p/00000000000000000000000000000004",
+      "sources_coverage": "https://app.notion.com/p/00000000000000000000000000000005",
+      "sessions": "https://app.notion.com/p/00000000000000000000000000000006",
+      "notes_inbox": "https://app.notion.com/p/00000000000000000000000000000007",
+      "codex_handoff_queue": "https://app.notion.com/p/00000000000000000000000000000008"
+    },
+    "parent_child": {
+      "course_home_parent_url": "https://app.notion.com/p/00000000000000000000000000000000",
+      "children_of_course_home": [
+        "runtime_snapshot",
+        "course_map",
+        "course_state_profile",
+        "sources_coverage",
+        "sessions",
+        "notes_inbox",
+        "codex_handoff_queue"
+      ],
+      "parent_by_page": {
+        "course_home": "parent_url",
+        "runtime_snapshot": "course_home",
+        "course_map": "course_home",
+        "course_state_profile": "course_home",
+        "sources_coverage": "course_home",
+        "sessions": "course_home",
+        "notes_inbox": "course_home",
+        "codex_handoff_queue": "course_home"
+      }
+    },
+    "managed_regions": {
+      "course_home": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:course_home:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "runtime_snapshot": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:runtime_snapshot:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "2222222222222222222222222222222222222222222222222222222222222222"
+      },
+      "course_map": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:course_map:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "3333333333333333333333333333333333333333333333333333333333333333"
+      },
+      "course_state_profile": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:course_state_profile:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444"
+      },
+      "sources_coverage": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:sources_coverage:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "5555555555555555555555555555555555555555555555555555555555555555"
+      },
+      "sessions": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:sessions:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "6666666666666666666666666666666666666666666666666666666666666666"
+      },
+      "notes_inbox": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:notes_inbox:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "7777777777777777777777777777777777777777777777777777777777777777"
+      },
+      "codex_handoff_queue": {
+        "managed_by": "notion-course-pack-init",
+        "course_id": "fixture_course",
+        "region_id": "fixture_course:codex_handoff_queue:v1",
+        "update_policy": "replace-managed-region-only",
+        "source_fingerprint": "8888888888888888888888888888888888888888888888888888888888888888"
+      }
+    },
+    "readback": {
+      "status": "verified",
+      "verified_at": "2026-07-09T00:10:00+00:00",
+      "pages": {
+        "course_home": {
+          "page_role": "course_home",
+          "url": "https://app.notion.com/p/00000000000000000000000000000001",
+          "title": "Fixture Course",
+          "region_id": "fixture_course:course_home:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "1111111111111111111111111111111111111111111111111111111111111111",
+          "prewrite_fingerprint": "1111111111111111111111111111111111111111111111111111111111111111",
+          "readback_fingerprint": "1111111111111111111111111111111111111111111111111111111111111111",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "runtime_snapshot": {
+          "page_role": "runtime_snapshot",
+          "url": "https://app.notion.com/p/00000000000000000000000000000002",
+          "title": "Runtime Snapshot",
+          "region_id": "fixture_course:runtime_snapshot:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "2222222222222222222222222222222222222222222222222222222222222222",
+          "prewrite_fingerprint": "2222222222222222222222222222222222222222222222222222222222222222",
+          "readback_fingerprint": "2222222222222222222222222222222222222222222222222222222222222222",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "course_map": {
+          "page_role": "course_map",
+          "url": "https://app.notion.com/p/00000000000000000000000000000003",
+          "title": "Course_Map",
+          "region_id": "fixture_course:course_map:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "3333333333333333333333333333333333333333333333333333333333333333",
+          "prewrite_fingerprint": "3333333333333333333333333333333333333333333333333333333333333333",
+          "readback_fingerprint": "3333333333333333333333333333333333333333333333333333333333333333",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "course_state_profile": {
+          "page_role": "course_state_profile",
+          "url": "https://app.notion.com/p/00000000000000000000000000000004",
+          "title": "Course_State & Profile",
+          "region_id": "fixture_course:course_state_profile:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+          "prewrite_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+          "readback_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "sources_coverage": {
+          "page_role": "sources_coverage",
+          "url": "https://app.notion.com/p/00000000000000000000000000000005",
+          "title": "Sources & Coverage",
+          "region_id": "fixture_course:sources_coverage:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "5555555555555555555555555555555555555555555555555555555555555555",
+          "prewrite_fingerprint": "5555555555555555555555555555555555555555555555555555555555555555",
+          "readback_fingerprint": "5555555555555555555555555555555555555555555555555555555555555555",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "sessions": {
+          "page_role": "sessions",
+          "url": "https://app.notion.com/p/00000000000000000000000000000006",
+          "title": "Sessions",
+          "region_id": "fixture_course:sessions:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "6666666666666666666666666666666666666666666666666666666666666666",
+          "prewrite_fingerprint": "6666666666666666666666666666666666666666666666666666666666666666",
+          "readback_fingerprint": "6666666666666666666666666666666666666666666666666666666666666666",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "notes_inbox": {
+          "page_role": "notes_inbox",
+          "url": "https://app.notion.com/p/00000000000000000000000000000007",
+          "title": "Notes Inbox",
+          "region_id": "fixture_course:notes_inbox:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "7777777777777777777777777777777777777777777777777777777777777777",
+          "prewrite_fingerprint": "7777777777777777777777777777777777777777777777777777777777777777",
+          "readback_fingerprint": "7777777777777777777777777777777777777777777777777777777777777777",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        },
+        "codex_handoff_queue": {
+          "page_role": "codex_handoff_queue",
+          "url": "https://app.notion.com/p/00000000000000000000000000000008",
+          "title": "Codex Handoff Queue",
+          "region_id": "fixture_course:codex_handoff_queue:v1",
+          "region_occurrences": 1,
+          "source_fingerprint": "8888888888888888888888888888888888888888888888888888888888888888",
+          "prewrite_fingerprint": "8888888888888888888888888888888888888888888888888888888888888888",
+          "readback_fingerprint": "8888888888888888888888888888888888888888888888888888888888888888",
+          "write_mode": "updated",
+          "outside_managed_region_before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outside_managed_region_after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "verified_at": "2026-07-09T00:09:00+00:00"
+        }
+      }
+    },
+    "idempotency": {
+      "strategy": "upsert-by-course-id-and-page-role",
+      "status": "verified",
+      "verified_at": "2026-07-09T00:10:00+00:00",
+      "course_home_matches": 1,
+      "duplicate_page_roles": []
+    }
+  },
+  "runtime_smoke": {
+    "status": "verified",
+    "verified_at": "2026-07-09T00:20:00+00:00",
+    "authorization": {
+      "status": "authorized",
+      "recorded_at": "2026-07-09T00:11:00+00:00"
+    },
+    "isolation_mode": "isolated-system-check-course",
+    "test_id": "runtime_smoke_fixture_20260709_001000",
+    "test_course_id": "system_check_fixture_course",
+    "test_course_title": "SYSTEM CHECK | Fixture Course Runtime",
+    "test_course_home_url": "https://app.notion.com/p/00000000000000000000000000000009",
+    "isolated_parent_url": "https://app.notion.com/p/00000000000000000000000000000010",
+    "allowed_write_pages": [
+      "runtime_snapshot",
+      "course_state_profile",
+      "sessions",
+      "notes_inbox"
+    ],
+    "forbidden_write_pages": [
+      "course_map",
+      "sources_coverage"
+    ],
+    "verified_write_pages": [
+      "runtime_snapshot",
+      "course_state_profile",
+      "sessions",
+      "notes_inbox"
+    ],
+    "verified_unchanged_pages": [
+      "course_map",
+      "sources_coverage"
+    ],
+    "write_page_receipts": {
+      "runtime_snapshot": {
+        "page_role": "runtime_snapshot",
+        "url": "https://app.notion.com/p/00000000000000000000000000000011",
+        "managed_region_test_id_occurrences": 1,
+        "verified_at": "2026-07-09T00:19:00+00:00"
+      },
+      "course_state_profile": {
+        "page_role": "course_state_profile",
+        "url": "https://app.notion.com/p/00000000000000000000000000000012",
+        "managed_region_test_id_occurrences": 1,
+        "verified_at": "2026-07-09T00:19:00+00:00"
+      },
+      "sessions": {
+        "page_role": "sessions",
+        "url": "https://app.notion.com/p/00000000000000000000000000000013",
+        "managed_region_test_id_occurrences": 1,
+        "verified_at": "2026-07-09T00:19:00+00:00"
+      },
+      "notes_inbox": {
+        "page_role": "notes_inbox",
+        "url": "https://app.notion.com/p/00000000000000000000000000000014",
+        "managed_region_test_id_occurrences": 1,
+        "verified_at": "2026-07-09T00:19:00+00:00"
+      }
+    },
+    "protected_page_receipts": {
+      "course_map": {
+        "page_role": "course_map",
+        "url": "https://app.notion.com/p/00000000000000000000000000000015",
+        "before_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "after_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "managed_region_test_id_occurrences": 0,
+        "verified_at": "2026-07-09T00:19:00+00:00"
+      },
+      "sources_coverage": {
+        "page_role": "sources_coverage",
+        "url": "https://app.notion.com/p/00000000000000000000000000000016",
+        "before_fingerprint": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "after_fingerprint": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "managed_region_test_id_occurrences": 0,
+        "verified_at": "2026-07-09T00:19:00+00:00"
+      }
+    },
+    "cleanup_status": "deleted-verified",
+    "cleanup_verified_at": "2026-07-09T00:20:00+00:00"
+  },
+  "validation": {
+    "status": "fixture_valid",
+    "notes": []
+  }
+}

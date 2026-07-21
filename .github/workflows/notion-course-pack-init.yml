@@ -1,0 +1,35 @@
+name: Validate Notion Course Pack Init
+
+on:
+  push:
+    paths:
+      - "skills/notion-course-pack-init/**"
+      - ".github/workflows/notion-course-pack-init.yml"
+  pull_request:
+    paths:
+      - "skills/notion-course-pack-init/**"
+      - ".github/workflows/notion-course-pack-init.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate public package
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -X utf8 skills/notion-course-pack-init/scripts/validate_skill_package.py skills/notion-course-pack-init --public
+      - name: Run unit tests
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -X utf8 -m unittest discover -s skills/notion-course-pack-init/scripts/tests -p "test_*.py" -v
+      - name: Run Course Pack validator self-test
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -X utf8 skills/notion-course-pack-init/scripts/validate_course_pack.py --self-test
