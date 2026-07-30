@@ -1,0 +1,4 @@
+interface:
+  display_name: "选影院、影厅与座位"
+  short_description: "全城覆盖效果型影厅，按影片版本解释格式差异并推荐具体厅与座位"
+  default_prompt: "使用 $pick-movie-theater 全城召回所有效果型影厅，解释各格式和代际差异，再按影片、位置和日期推荐具体影厅与选座区域。"
