@@ -79,5 +79,14 @@
     "xiaohongshu_title": "怎么用 AI 快速读懂一本书",
     "xiaohongshu_url": "http://xhslink.com/o/AAYwJyc1roT",
     "status": "public"
+  },
+  {
+    "name": "pick-movie-theater",
+    "display_name": "Pick Movie Theater",
+    "path": "skills/pick-movie-theater",
+    "skill_md": "skills/pick-movie-theater/SKILL.md",
+    "xiaohongshu_title": "《蜘蛛侠》《奥德赛》看什么厅？一个 Skill 帮你选影院和座位",
+    "xiaohongshu_url": "",
+    "status": "public"
   }
 ]

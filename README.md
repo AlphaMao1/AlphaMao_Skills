@@ -4,7 +4,7 @@
 
 #### 我在小红书分享的 AI Agent Skills，都整理在这里
 
-[![Skills](https://img.shields.io/badge/Skills-9-10B981?style=for-the-badge)](#skills)
+[![Skills](https://img.shields.io/badge/Skills-10-10B981?style=for-the-badge)](#skills)
 [![Agent Skills](https://img.shields.io/badge/Agent_Skills-SKILL.md-8B5CF6?style=for-the-badge)](#install)
 [![Codex](https://img.shields.io/badge/Codex-Ready-111827?style=for-the-badge&logo=openai&logoColor=white)](#install)
 [![Xiaohongshu](https://img.shields.io/badge/小红书-Alpha%20Mao-FF2442?style=for-the-badge)](#about)
@@ -36,6 +36,7 @@
 | 直觉泵 | 把《直觉泵》的 77 个思考工具变成 Agent 可以路由、学习和调用的思考工具箱 | 把《直觉泵》的77个思考工具变成一个 skill<br><http://xhslink.com/o/5LGsU9I2FoV> | [`skills/intuition-pumps`](./skills/intuition-pumps/) |
 | Stanford Vibe Coding Course | 把 Stanford CS146S / vibe coding 课程变成可跟踪的学习系统 | 斯坦福 Vibe Coding 课程学习系统开源<br><http://xhslink.com/o/1qmfBbWYKku> | [`skills/stanford-vibe-coding-course`](./skills/stanford-vibe-coding-course/) |
 | Notion Course Pack Init | 把一本书或一门课程初始化成可在 ChatGPT 中持续学习、在 Notion 中保存真实进度的 Course Pack | 怎么用 AI 快速读懂一本书<br><http://xhslink.com/o/AAYwJyc1roT> | [`skills/notion-course-pack-init`](./skills/notion-course-pack-init/) |
+| Pick Movie Theater | 按影片版本、位置、具体影厅和场次证据推荐影院、影厅与座位 | 《蜘蛛侠》《奥德赛》看什么厅？<br> | [`skills/pick-movie-theater`](./skills/pick-movie-theater/) |
 
 ---
 
@@ -326,6 +327,34 @@ git clone https://github.com/AlphaMao1/AlphaMao_Skills.git
 ```
 
 → [README](./skills/notion-course-pack-init/README.md) · [SKILL.md](./skills/notion-course-pack-init/SKILL.md) · 小红书讲解：<http://xhslink.com/o/AAYwJyc1roT>
+
+</td></tr>
+</table>
+
+<table>
+<tr><td>
+
+### Pick Movie Theater
+
+> 不只告诉你看 IMAX 还是杜比，而是落到这部电影、这座城市、这个影厅和这个场次。
+
+这个 Skill 从公开免费来源重新搜索影片版本和全城效果型影厅，区分影院品牌、具体厅能力与当前排片，再把效果上限、通勤时间、证据风险和选座一起解释清楚。
+
+**适合**
+
+- 比较 IMAX、杜比影院、CINITY、ScreenX、影院 LED 等放映格式
+- 在全城最佳和附近通勤方案之间做取舍
+- 没有座位图时先选区域，有截图时再选具体座位
+
+**触发方式**
+
+```text
+我在这个位置，看《电影名》应该选哪个影院和影厅？
+这几个 IMAX、杜比和 CINITY 场次有什么区别？
+这是选座截图，帮我挑两个连座。
+```
+
+→ [README](./skills/pick-movie-theater/README.md) · [SKILL.md](./skills/pick-movie-theater/SKILL.md) · 小红书讲解：
 
 </td></tr>
 </table>
